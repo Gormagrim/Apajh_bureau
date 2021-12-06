@@ -13,7 +13,7 @@
     "@popperjs/core": "^2.9.3",
     "@progress/kendo-ui": "^2021.3.914",
     "bootstrap": "^5.1.0",
-    "froala-editor": "^4.0.6",
+    "froala-editor": "^4.0.7",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1"
   },
@@ -21,7 +21,7 @@
     "@popperjs/core": "^2.9.3",
     "@progress/kendo-ui": "^2021.3.914",
     "bootstrap": "^5.1.0",
-    "froala-editor": "^4.0.6",
+    "froala-editor": "^4.0.7",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1"
   }
