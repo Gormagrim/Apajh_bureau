@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.api.apajh.jeseb.fr/public/v1/" />
+    <meta http-equiv="X-Content-Security-Policy"
+        content="script-src 'self' https://www.api.apajh.jeseb.fr/public/v1/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous" />
+    <title>Apajh Station</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="nav"></div>
+            <div class="col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11 content text-center">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+                        <div class="row">
+                            <div
+                                class="offset-col-2 col-3 offset-sm-2 col-sm-3 offset-md-2 col-md-3 offset-lg-2 col-lg-3 offset-xl-2 col-xl-3 text-center">
+                                <a class="ime" href="./adminLsf.html">
+                                    <div class="menuTopContent">
+                                        Vidéothèque
+                                    </div>
+                                </a>
+                                <div class="offlineVideosText"></div>
+                            </div>
+                            <div
+                                class="offset-col-2 col-3 offset-sm-2 col-sm-3 offset-md-2 col-md-3 offset-lg-2 col-lg-3 offset-xl-2 col-xl-3 text-center">
+                                <a class="ime" href="./adminBlog.html">
+                                    <div class="menuTopContent">
+                                        Blog
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div
+                                class="offset-col-2 col-3 offset-sm-2 col-sm-3 offset-md-2 col-md-3 offset-lg-2 col-lg-3 offset-xl-2 col-xl-3 text-center">
+                                <a class="ime" href="./adminUsers.html">
+                                    <div class="menuBackcontent">
+                                        Utilisateurs
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- You can also require other files to run in this process -->
+    <script language="JavaScript" type="text/javascript" src="../js/jquery-3.6.6.js"></script>
+    <script src="../fetch/infos.js"></script>
+    <script src="../fetch/general.js"></script>
+    <script src="../fetch/lsf.js"></script>
+    <script src="../renderer.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+
+</html>

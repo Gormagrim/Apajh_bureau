@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.api.apajh.jeseb.fr/public/v1/" />
+    <meta http-equiv="X-Content-Security-Policy"
+        content="script-src 'self' https://www.api.apajh.jeseb.fr/public/v1/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous" />
+    <title>Apajh Station</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="nav"></div>
+            <div class="col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11 content text-center">
+                <div class="row">
+                    <div class="col-6 mt-4 separation">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+                                <div class="row">
+                                    <div class="offset-2 col-8 photoNumber mt-2"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="offset-2 col-8 mt-2 galeryValidation">
+                                        <span>Voulez-vous ajouter une galerie de photo à la fin de votre article
+                                            ?</span>
+                                        <div class="galeryBtn"></div>
+                                    </div>
+                                </div>
+                                <div class="postTitle">
+                                    <div class="row">
+                                        <div class="offset-2 col-8 mt-2">
+                                            <span>Titre de votre article</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="offset-2 col-8">
+                                            <input class="form-control newBlogContent" type="text"
+                                                placeholder="Entrer ici le nom de votre article" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="offset-2 col-8 mt-2">
+                                            <select class="newBlogContentType" id="contentType">
+                                                <option value="1">IME</option>
+                                                <option value="3">hors IME</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="offset-2 col-8 mt-2">
+                                            <button class="btn btn-secondary addBlogContent">Valider</button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="offset-2 col-8">
+                                            <input id="articleId" type="hidden" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="offset-2 col-8 mainPhoto mt-2">
+                                        <span>Ajouter un titre à votre photo principale (Obligatoire)</span><br />
+                                        <input class="form-control photoTitle mt-1" type="text"><br />
+                                        <span>Ajouter une description à votre photo (Obligatoire)</span><br />
+                                        <input class="form-control photoText mt-1" type="text"><br />
+                                        <span>Ajouter la photo principale de votre article</span><br />
+                                        <input class="form-control addMainPhoto mt-1" type="file">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="offset-2 col-8 firstArticle mt-2">
+                                        <span>Ajouter le contenu de votre paragraphe (Obligatoire)</span><br />
+                                        <textarea class="form-control firstArticleText" cols="80" rows="10"></textarea>
+                                        <button class="btn btn-secondary addFirstArticle mt-2">Valider</button>
+                                    </div>
+                                </div>
+                                <div class="btn-group dropstart addAny">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        + Ajouter du contenu
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                                        <li><span class="dropdown-item addText">Text</span></li>
+                                        <li><span class="dropdown-item addTextAndPhoto">Text + photo</span></li>
+                                        <li><span class="dropdown-item addPhoto">Galerie de photos</span></li>
+                                        <!-- <li><span class="dropdown-item addVideo">Vidéo</span></li> -->
+                                    </ul>
+                                </div>
+                                <div class="row">
+                                    <div class="offset-2 col-8 paragraf mt-2">
+                                        <span class="mt-2">Ajouter un titre à votre paragraphe (Facultatif)</span><br />
+                                        <input type="text" class="form-control paragraphTitle">
+                                        <span class="mt-2">Ajouter le contenu de votre paragraphe
+                                            (Obligatoire)</span><br />
+                                        <textarea class="form-control paragraphText" cols="80" rows="10"></textarea>
+                                        <button class="btn btn-secondary addParagraph mt-2">Valider</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="offset-2 col-8 mt-2 paragrafPhoto">
+                                        <span>Ajouter un titre à la photo de votre paragraphe (Obligatoire)</span><br />
+                                        <input class="form-control paragrafPhotoTitle mt-1" type="text"><br />
+                                        <span>Ajouter une description à la photo de votre paragraphe
+                                            (Obligatoire)</span><br />
+                                        <input class="form-control paragrafPhotoText mt-1" type="text"><br />
+                                        <span>Ajouter l'id du paragraphe auquel vous voulez ajouter une
+                                            photo</span><br />
+                                        <input class="form-control paragrafPhotoId mt-1" type="text"><br />
+                                        <span>Ajouter la photo de votre paragraphe</span><br />
+                                        <input class="form-control addParagrafPhoto mt-1" type="file">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="offset-2 col-8 mt-2 photo">
+                                        <p class="galeryTitle">Ajouter les photos une à une.</p>
+                                        <span>Ajouter un titre à la photo de votre galerie (Obligatoire)</span><br />
+                                        <input class="form-control photoTitle mt-1" type="text"><br />
+                                        <span>Ajouter une description à la photo de votre galerie
+                                            (Obligatoire)</span><br />
+                                        <input class="form-control photoText mt-1" type="text"><br />
+                                        <span>Ajouter la photo de votre galerie</span><br />
+                                        <input class="form-control addGaleryPhoto mt-1" type="file">
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-6 mt-4">
+                        <div class="testo"></div>
+                        <div class="row">
+                            <div class="offset-2 col-8 mt-2">
+                                <p>Chaque étape de la construction de votre article apparaitra ci-dessous.</p>
+                                <hr />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="offset-2 col-8 mt-2 articleTitle"></div>
+                        </div>
+                        <div class="row">
+                            <div class="offset-2 col-8 mt-2">
+                                <img class="firstPhoto" src="" alt=""><br />
+                                <span class="firstPhotoTitle"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 mt-2">
+                                <span class="paragrafId"></span>
+                            </div>
+                            <div class="col-8 mt-2">
+                                <span class="getFirstParagraf"></span>
+                            </div>
+                        </div>
+                        <div class="getParagraf"></div>
+                        <div class="carousel">
+                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                    data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                    data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- You can also require other files to run in this process -->
+    <script language="JavaScript" type="text/javascript" src="../js/jquery-3.6.6.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../fetch/infos.js"></script>
+    <script src="../fetch/newArticle.js"></script>
+    <script src="../fetch/general.js"></script>
+    <script src="../renderer.js"></script>
+
+</body>
+
+</html>

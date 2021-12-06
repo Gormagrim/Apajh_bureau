@@ -1,0 +1,680 @@
+@font-face {
+    font-family: 'noto_sansbold';
+    src: url('../police/notosans-bold-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'noto_sansbold_italic';
+    src: url('../police/notosans-bolditalic-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'noto_sansitalic';
+    src: url('../police/notosans-italic-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'noto_sansregular';
+    src: url('../police/notosans-regular-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'noto_sansregular', sans-serif;
+    background-image: url(../img/background_apajh3.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: 1.6vh;
+    background-position-y: 2.5vh;
+    background-attachment: fixed;
+    z-index: 1000;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 2rem;
+}
+
+@media screen and (max-width: 1300px) {
+    .container-fluid {
+        background-position-x: 0.3vh;
+    }
+}
+
+.menu {
+    height: 100vh;
+    position: fixed;
+    /* border: 1px solid red; /* bordure de travail à supprimer une fois la vue mise en place */
+}
+
+.content {
+    height: 100vh;
+    margin-left: 12vh;
+    /* border: 1px solid red;*/
+}
+
+.connectionMenu {
+    height: 99.9vh;
+}
+
+.connection {
+    margin-top: 40vh;
+    background-color: #f49f5cff;
+    height: 29vh;
+    border: 1px solid #f49f5cff;
+    box-shadow: 5px 5px 5px grey;
+    border-radius: 10px;
+}
+
+.form-control.login {
+    margin-top: 4vh;
+    border: 1px solid #f49f5cff;
+}
+
+.btn-info {
+    display: block;
+    margin-left: 1vh;
+    background-color: #5970B1;
+    border: 1px solid #5970B1;
+    color: #fff;
+}
+
+.btn-info:hover {
+    background-color: #84a0ec;
+    border: 1px solid #84a0ec;
+    color: #fff;
+}
+
+#login {
+    display: block;
+    margin: 2vh auto;
+    background-color: #5970B1;
+    border: 1px solid #5970B1;
+    color: #fff;
+}
+
+#login:hover {
+    background-color: #84a0ec;
+    border: 1px solid #84a0ec;
+    color: #fff;
+}
+
+/* MENU */
+
+.logo {
+    height: 12vh;
+}
+
+.menu_item.selected {
+    margin-top: 5vh;
+    height: 10vh;
+    line-height: 10vh;
+    border: 2px solid #fff;
+    border-radius: 4.5vh;
+    background-color: #FADCE6;
+    display: table;
+    width: 100%;
+}
+
+.menu_item {
+    margin-top: 5vh;
+    height: 10vh;
+    line-height: 10vh;
+    border: 2px solid #fff;
+    border-radius: 4.5vh;
+    background-color: #f49f5cff;
+    display: table;
+    width: 100%;
+}
+
+a.menu_item, a.menu_item_return, a.menu_item_logout {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.menu_item_return {
+    margin-top: 5vh;
+    height: 5vh;
+    line-height: 5vh;
+    border: 2px solid #fff;
+    border-radius: 4.5vh;
+    background-color: #5970B1;
+    display: table;
+    width: 100%;
+}
+
+.menu_item_logout {
+    margin-top: 5vh;
+    height: auto;
+    border: 2px solid #fff;
+    border-radius: 4.5vh;
+    background-color: #CF4D6F;
+    display: table;
+    width: auto;
+}
+
+.topNavigation {
+    position: fixed;
+    z-index: 100;
+}
+
+div.topNavigation {
+    font-size: 0.8rem;
+    background-color: #f49f5cff;
+    height: 5vh;
+    line-height: 5vh;
+}
+
+.icon {
+    padding: 1.5px;
+    border-radius: 2px;
+    border: 1px solid red;
+}
+
+.iconA {
+    text-decoration: none;
+    color: red;
+}
+
+.iconA:hover {
+    color: red;
+}
+
+.btn.logout {
+    text-decoration: none;
+    color: #fff;
+    background-color: #CF4D6F;
+    border-color: #CF4D6F;
+    float: right;
+}
+
+.addButton {
+    margin-top: 6vh;
+    margin-bottom: 2vh;
+    margin-left: 1vh;
+    text-align: center;
+    color: #FADCE6;
+    width: 60px;
+    line-height: 60px;
+    height: 60px;
+    border: 4px solid #5970B1;
+    border-radius: 30px;
+    background-color: #fff;
+}
+
+/* IME */
+
+.menuTopContent {
+    margin-top: 30vh;
+    height: 20vh;
+    line-height: 20vh;
+    background-color: #f49f5cff;
+    box-shadow: 5px 5px 5px grey;
+    border-radius: 10px;
+}
+
+.menuBackcontent {
+    margin-top: 4vh;
+    height: 20vh;
+    line-height: 20vh;
+    background-color: #f49f5cff;
+    box-shadow: 5px 5px 5px grey;
+    border-radius: 10px;
+}
+
+.wordHr {
+    z-index: -100;
+    width: 90%;
+    margin: 5px auto;
+}
+
+a.ime {
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+}
+
+/* Liste des articles */
+
+.myTitle {
+    text-align: left;
+}
+
+.oeil {
+    margin: 10px auto;
+}
+
+.blog {
+    color: #5970B1;
+}
+
+.imeBlog {
+    color: #198754;
+}
+
+.articleOffset {
+    height: 100vh;
+}
+
+.articleList {
+    height: 100vh;
+    background-color: #f49f5cff;
+}
+
+.articleMarg {
+    height: 100vh;
+    background-color: #f49f5cff;
+}
+
+.form-control.search {
+    border: 1px solid #f49f5cff;
+    height: 4vh;
+}
+
+.articleTitle {
+    font-weight: bold;
+}
+
+.afterArticleTitle {
+    height: 2vh;
+}
+
+.onlineArticle {
+    color: #198754;
+    font-weight: bold;
+}
+
+.offlineArticle {
+    color: #CF4D6F;
+    font-weight: bold;
+}
+
+.offline, .noShared {
+    color: #CF4D6F;
+}
+
+.btn-primary {
+    background-color: #5970B1;
+    border: 1px solid #5970B1
+}
+
+.btn-primary:hover {
+    background-color: #84a0ec;
+    border: 1px solid #84a0ec
+}
+
+.btn-danger {
+    background-color: #CF4D6F;
+}
+
+.btn-danger:hover {
+    background-color: #E18EA4;
+    border: 1px solid #E18EA4
+}
+
+.oneArticle {
+    height: 6vh;
+    line-height: 6vh;
+    background-color: #f49f5cff;
+    margin-bottom: 1vh;
+    box-shadow: 5px 5px 5px grey;
+}
+
+@media screen and (max-width: 1300px) {
+    .oneArticle {
+        font-size: 12px;
+    }
+}
+
+input:invalid {
+    box-shadow: 0 0 5px 1px red;
+}
+
+input:focus:invalid {
+    outline: none;
+}
+
+#toto {
+    color: #000;
+}
+
+/* LSF */
+
+.videoLisit {
+    color: #5970B1;
+    padding-top: 6em;
+    overflow: hidden;
+    background-color: #fff;
+    margin-left: 9em;
+    z-index: 60;
+}
+
+.listWord {
+    margin-top: 10em;
+    z-index: -1;
+    margin-left: 5em;
+}
+
+.wordTitle {
+    z-index: 100;
+    position: fixed;
+}
+
+.alerte {
+    color: #CF4D6F;
+    margin-top: 6vh;
+}
+
+div.voirCat, div.creatCat, div.creatContent, div.creatVideoContent {
+    display: none;
+}
+
+.itIsOk p {
+    color: blue;
+    font-weight: bold;
+}
+
+.itIsNotOk p {
+    color: red;
+    font-weight: bold;
+}
+
+.addCat, .addVideoContent, .addVideoToVideoContent {
+    background-color: #5970B1;
+    border-color: #5970B1;
+}
+
+.online {
+    margin-top: 1vh;
+}
+
+.isOffline, .isOnline {
+    height: 1vh;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.isOnline {
+    color: seagreen;
+}
+
+.isOffline {
+    color: tomato;
+}
+
+.state {
+    color: #5970B1;
+    font-weight: bold;
+}
+
+a.menu_item.admin {
+    display: none;
+}
+
+.btn.btn-outline-success, .btn-outline-danger {
+    height: auto;
+    width: auto;
+}
+
+.offlineVideos {
+    color: red;
+}
+
+.offlineVideosText {
+    color: red;
+    margin-top: 1vh;
+}
+
+.articleName {
+    color: #5970B1;
+}
+
+.mainPhoto {
+    display: none;
+}
+
+.firstPhoto {
+    width: 200px;
+    height: auto;
+}
+
+.firstArticle {
+    display: none;
+}
+
+.paragraf, .paragrafPhoto, .photo, .galeryValidation {
+    display: none;
+}
+
+.separation {
+    border-right: 1px solid grey;
+}
+
+.addAny {
+    display: none;
+    margin-top: 2vh;
+}
+
+.semiPhoto {
+    width: 100px;
+    height: auto;
+}
+
+.photoNumber {
+    display: none;
+    color: #5970B1;
+    border: 1px solid #5970B1;
+}
+
+.galeryTitle {
+    color: #5970B1;
+}
+
+.carousel {
+    display: none;
+    width: 50vh;
+    margin: 2vh auto;
+}
+
+.ldsVideo {
+    width: 600px;
+    height: auto;
+}
+
+.voir {
+    color: #5970B1;
+    cursor: pointer;
+}
+
+.videoAttention, .errorMessage {
+    color: red;
+}
+
+/* modal des articles */
+
+.modalPhoto{
+    text-align: center;
+}
+
+.allPara {
+    text-align: justify;
+}
+
+.onePara, .semiPara {
+    margin-bottom: 1vh;
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 2vh;
+}
+
+.photoP {
+    margin-top: 2vh;
+}
+
+.semi {
+    margin: auto 0;
+}
+
+.modal-header, .modal-footer {
+    background-color: #f49f5cff;
+}
+
+.modal-title {
+    margin: 0 auto;
+}
+
+.modal-header .btn-close {
+    margin: 0;
+}
+
+textarea {
+    min-height: 30vh !important;
+}
+
+p.mod {
+    margin-top: 4vh;
+    font-weight: bold;
+    color: #5970B1;
+}
+
+.photosModif img {
+    width: 200px !important;
+    height: auto;
+    margin: 1vh;
+}
+
+/* Modification de l'article */
+
+.isOk {
+    color: cadetblue;
+    margin-top: 1vh;
+}
+
+.isNotOk {
+    color: crimson;
+    margin-top: 1vh;
+}
+.italic {
+    font-style: italic;
+}
+
+span.oeilSpan {
+    cursor: pointer;
+}
+
+/* adminUsers */
+.oneUser {
+    height: 5vh;
+    line-height: 5vh;
+    background-color: #f49f5cff;
+    margin-bottom: 1vh;
+    box-shadow: 5px 5px 5px grey;
+}
+
+.active {
+    color: #5970B1;
+    font-weight: bold;
+}
+
+.inactive {
+    color: crimson;
+    font-weight: bold;
+}
+
+img.myPhoto {
+    width: 200px;
+    height: auto;
+}
+
+.userRegisterDate {
+    color: #5970B1;
+    font-weight: bold;
+}
+
+.accountWillBeDeleted {
+    color: red;
+    font-weight: bold;
+}
+
+.information {
+    color: #5970B1;
+    cursor: pointer;
+    margin-left: -2px;
+}
+
+.addUser {
+    cursor: pointer;
+    color: #5970B1;
+    margin-left: -2px;
+}
+
+
+
+.lastLogin {
+    float: left;
+    width: 80vh;
+}
+
+.notActive {
+    color: red;
+}
+
+span.admin, div.admin {
+    color: rgb(102, 15, 15);
+}
+
+span.direction, div.direction {
+    color: red;
+}
+
+span.ime, div.ime {
+    color: indigo;
+}
+
+span.service, div.service {
+    color: #536C18;
+}
+
+span.famille, div.famille {
+    color: #5970B1;
+}
+
+span.inscrit, div.inscrit {
+    color: #f1de0c;
+}
+
+.modifGroup {
+    display: none;
+    color: mediumblue;
+}
+
+.activateAcc {
+    color: mediumblue;
+}
+
+.garbage {
+    color: red;
+}
+
+.form-label {
+    color: #5970B1;
+}
+
+.importantMsg {
+    color: red;
+    font-weight: bold;
+}
+
+.mailError, .pwdError, .pwdVError, .errorMsg {
+    color: red;
+}

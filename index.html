@@ -1,19 +1,57 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
 
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy"
+    content="script-src 'self' https://www.api.apajh.jeseb.fr/public/v1/login" />
+  <meta http-equiv="X-Content-Security-Policy"
+    content="script-src 'self' https://www.api.apajh.jeseb.fr/public/v1/login" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>Apajh Station</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 menu">
+      </div>
+      <div class="col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11 content">
+        <div class="row">
+          <div
+            class="col-12 offset-sm-4 col-sm-4 offset-md-4 col-md-4 offset-lg-4 col-lg-4 offset-xl-4 col-xl-4 connectionMenu">
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 connection">
+                <form action="">
+                  <div
+                    class="offset-col-1 col-10 offset-sm-1 col-sm-10 offset-md-1 col-md-10 offset-lg-1 col-lg-10 offset-xl-1 col-xl-10 text-center">
+                    <input class="form-control login text-center" type="email" id="mail" name="mail" autocomplete
+                      placeholder="Adresse mail" />
+                  </div>
+                  <div
+                    class="offset-col-1 col-10 offset-sm-1 col-sm-10 offset-md-1 col-md-10 offset-lg-1 col-lg-10 offset-xl-1 col-xl-10 text-center">
+                    <input class="form-control login text-center" type="password" id="password" name="password"
+                      placeholder="Mot de passe" />
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <button type="button" class="btn btn-info" id="login">Valider</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- You can also require other files to run in this process -->
+  <script language="JavaScript" type="text/javascript" src="./js/jquery-3.6.6.js"></script>
+  <script src="../fetch/general.js"></script>
+  <script src="./renderer.js"></script>
+  <script src="./fetch/login.js"></script>
+</body>
+
 </html>

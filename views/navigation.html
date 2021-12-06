@@ -1,0 +1,73 @@
+<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 menu">
+    <div class="row logo">
+        <!-- CALIBRATION DU MENU -->
+    </div>
+    <div class="row">
+        <a href="./admin.html"
+            class="offset-col-2 col-10 offset-sm-2 col-sm-10 offset-md-2 col-md-10 offset-lg-2 col-lg-10 offset-xl-2 col-xl-10 menu_item text-center admin">
+            Admin
+        </a>
+    </div>
+    <div class="row">
+        <a href="./blog.html"
+            class="offset-col-2 col-10 offset-sm-2 col-sm-10 offset-md-2 col-md-10 offset-lg-2 col-lg-10 offset-xl-2 col-xl-10 menu_item text-center">
+            Blog
+        </a>
+    </div>
+    <div class="row">
+        <a href="./lsf.html"
+            class="offset-col-2 col-10 offset-sm-2 col-sm-10 offset-md-2 col-md-10 offset-lg-2 col-lg-10 offset-xl-2 col-xl-10 menu_item text-center">
+            LSF
+        </a>
+    </div>
+    <div class="row">
+        <a href="./menu.html"
+            class="offset-col-2 col-10 offset-sm-2 col-sm-10 offset-md-2 col-md-10 offset-lg-2 col-lg-10 offset-xl-2 col-xl-10 menu_item_return text-center">
+            Accueil
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 topNavigation text-center mb-2">
+        <div class="row">
+            <div class="col-4">
+                <form class="d-flex mt-1">
+                    <input class="form-control search" type="search" id="search" name="search"
+                        placeholder="Objet de votre recherche" />
+                    <button class="btn btn-info btn-sm" type="button">Rechercher</button>
+                </form>
+            </div>
+            <div class="col-4">
+                <p>Bonjour <span id="name"></span>, </p>
+            </div>
+            <div class="col-2">
+                <span class="offlineVideos"></span>
+            </div>
+            <div class="col-2">
+                <form class="d-flex mt-1">
+                    <a href="../index.html" type="button" class="btn btn-primary btn-sm logout">Déconnexion</a>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="logoutModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <div class="modal-header">
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h5 class="modal-title" id="exampleModalLabel">Session expirée</h5>
+                Merci de vous connecter à nouveau !
+            </div>
+            <div class="modal-footer">
+                <a type="button" class="btn btn-info" id="modalBtn" href="../index.html">Se
+                    connecter</a>
+            </div>
+        </div>
+    </div>
+</div>

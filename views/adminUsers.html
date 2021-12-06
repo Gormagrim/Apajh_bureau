@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.api.apajh.jeseb.fr/public/v1/" />
+    <meta http-equiv="X-Content-Security-Policy"
+        content="script-src 'self' https://www.api.apajh.jeseb.fr/public/v1/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous" />
+    <title>Apajh Station</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="nav"></div>
+            <div class="col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11 content text-center">
+                <div class="row">
+                    <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 articleOffset">
+                    </div>
+                    <div class="col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11 text-center">
+                        <div class="row">
+                            <div class="col-10 search">
+                            </div>
+                            <div class="col-1 addButton">
+                                <i class="fas fa-user-plus fa-2x addUser" data-bs-toggle="modal"
+                                    data-bs-target="#newUserModal" title="Ajouter un utilisateur"></i>
+                            </div>
+                            <div class="col-1 addButton">
+                                <i class="fas fa-info-circle fa-2x information" data-bs-toggle="modal"
+                                    data-bs-target="#infoModal" title="Plus d'informations"></i>
+                            </div>
+                        </div>
+                        <div class="row articleTitle">
+                            <div class="col-4">
+                                Nom
+                            </div>
+                            <div class="col-1">
+                                Groupe
+                            </div>
+                            <div class="col-3">
+                                Dernière connexion
+                            </div>
+                            <div class="col-2">
+                                Satut
+                            </div>
+                            <div class="col-2">
+                                Voir plus
+                            </div>
+                        </div>
+                        <div class="row afterArticleTitle">
+
+                        </div>
+                        <!-- A PARTIR D'ICI LA LISTE DES ARTICLES -->
+                        <div class="users">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Début modal user info-->
+    <div class="modal fade" id="userModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <i class="far fa-trash-alt fa-2x garbage" data-id="" title="Supprimer l'utilisateur"
+                        data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
+                    <h2 class="modal-title"></h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-12 userPhoto">
+                                </div>
+                                <div class="col-12 userGroup">
+                                </div>
+                                <div class="col-12 modifGroupButton">
+                                </div>
+                                <div class="col-12 modifGroup text-center">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-9 text-center">
+                            <div class="userDescription"></div>
+                            <div class="registerDate mt-2"></div>
+                            <div class="isActif mt-2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="lastLogin mt-2"></div>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal d'information-->
+    <div class="modal fade" id="infoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Information sur la page</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <p><i class="fas fa-arrow-circle-right"></i> Les utilisateurs dont la ligne est en rouge sont
+                            inactifs depuis plus de deux ans et leur compte sera bientôt supprimé.</p>
+                        <p><i class="fas fa-arrow-circle-right"></i> Vous pouvez cliquer sur "voir plus" pour renvoyer
+                            le mail de validation d'inscription. En cas de non réception du mail, vous pouvez activer
+                            manuellement le compte.</p>
+                        <p><i class="fas fa-arrow-circle-right"></i> Vous avez également la possibilité de desactiver un
+                            compte actif, si besoin.</p>
+                        <p><i class="fas fa-arrow-circle-right"></i> La commande pour supprimer un utilisateur doit être
+                            utilisée avec parcimonie.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal d'ajout d'utilisateur-->
+    <div class="modal fade" id="newUserModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Ajouter un utilisateur</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 text-center mb-2">
+                            INFORMATION IMPORTANTE :
+                        </div>
+                        <div class="col-12 text-center mb-2">
+                            <p>Vous pouvez créer un utilisateur à partir de son adresse mail et d'un mot de passe
+                                provisoire.</p>
+                            <p>Le groupe de l'utilisateur pourra être modifié lorsqu'il aura validé son inscription en
+                                cliquant sur le lien qui lui sera envoyé par mail.</p>
+                        </div>
+                        <div class="col-12 text-center">
+                            <label for="mail" class="form-label">Adresse mail de l'utilisateur</label>
+                            <input type="text" class="form-control m-2" id="mail" name="mail"
+                                placeholder="Mail de l'utilisateur" />
+                            <span class="mailError"></span>
+                        </div>
+                        <div class="col-12 text-center m-2">
+                            <label for="password" class="form-label">Mot de passe PROVISOIRE (8 caractères
+                                minimum)</label>
+                            <div class="input-group" id="show_hide_password">
+                                <input type="password" class="form-control " id="password" name="password"
+                                    placeholder="Mot de passe" />
+                                <span class="input-group-text" id="basic-addon1"><a class="eye" href=""><i
+                                            class="fa fa-eye-slash" aria-hidden="true"></i></a></span>
+                            </div>
+                            <span class="pwdError"></span>
+                            <span id="msg"></span>
+                        </div>
+                        <div class="col-12 text-center m-2">
+                            <label for="passwordVerif" class="form-label">Confirmer le mot de passe PROVISOIRE</label>
+                            <div class="input-group" id="show_hide_password_verif">
+                                <input type="password" class="form-control " id="passwordVerif" name="passwordVerif"
+                                    placeholder="Confirmer mot de passe" />
+                                <span class="input-group-text" id="basic-addon1"><a class="eye" href=""><i
+                                            class="fa fa-eye-slash" aria-hidden="true"></i></a></span>
+                            </div>
+                            <span class="pwdVError"></span>
+                        </div>
+                        <div class="col-12 text-center m-2 importantMsg">
+                            <p> 1- Pensez à noter le mot de passe provisoire pour le communiquer à l'utilisateur.</p>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button type="button"
+                                class="btn btn-outline-success btn-sm createUserValidation">Valider</button>
+                        </div>
+                        <div class="col-12 text-center creationMessage">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Validation de suppression d'utilisateur-->
+    <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header row">
+                    <div class="col-12 text-center">
+                        <h2 class="deleteModal-title">Voulez-vous vraiment supprimer cet utilisateur ?!</h2>
+                    </div>
+                    <div class="col-12 text-center">
+                        <h3 class="modal-title"></h3>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6 text-center">
+                            <button type="button" class="btn btn-success">Non</button>
+                        </div>
+                        <div class="col-6 text-center">
+                            <button type="button" class="btn btn-danger trashUser">Oui</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin modals-->
+    <!-- You can also require other files to run in this process -->
+    <script src="../js/jquery-3.6.6.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../fetch/infos.js"></script>
+    <script src="../fetch/general.js"></script>
+    <script src="../fetch/adminUsers.js"></script>
+    <script src="../renderer.js"></script>
+</body>
+
+</html>
