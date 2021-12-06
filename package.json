@@ -10,7 +10,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
     "electron": "^11.1.1",
-    "@popperjs/core": "^2.9.3",
+    "@popperjs/core": "^2.11.0",
     "@progress/kendo-ui": "^2021.3.914",
     "bootstrap": "^5.1.0",
     "froala-editor": "^4.0.6",
@@ -18,7 +18,7 @@
     "popper.js": "^1.16.1"
   },
   "dependencies": {
-    "@popperjs/core": "^2.9.3",
+    "@popperjs/core": "^2.11.0",
     "@progress/kendo-ui": "^2021.3.914",
     "bootstrap": "^5.1.0",
     "froala-editor": "^4.0.6",
