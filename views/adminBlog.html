@@ -48,7 +48,6 @@
                                 Satut
                             </div>
                             <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-
                             </div>
                             <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                             </div>
@@ -97,7 +96,7 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="modalModif" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal fade" id="modalModif" data-bs-backdrop="static" data-bs-keyboard="false" data-bs-focus="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-scrollable">
             <div class="modal-content">
@@ -108,10 +107,37 @@
                 <div class="modal-body">
                     <div class="articleModalModif"></div>
                     <div class="allParaModif"></div>
-                    <div class="photos"></div>
+                    <div>
+                        <p>Les photos de votre galerie :</p>
+                        <div class="photos"></div>
+                        <div class="newPhotos">
+                            <div class="text-center"><button class="btn btn-primary addNewPhoto mt-2">Ajouter une nouvelle photo</button><br /><span class="addNewPhotoSpan">Ajouter le titre de la photo</span><br /><input type="text" class="form-control addPhotoTitleCarousel" /><br /><input type="file" class="form-control addPhotoFileCarousel addOnePhotoToCarousel" /><input class="hiddenArticleId" type="hidden" /></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary closer" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de suppression d'article -->
+    <div class="modal fade" id="deleteArticleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Supprimer l'article</h2>
+                    <button type="button" class="btn-close closer" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <h2>Vous êtes sur le point de supprimer définitivement l'article :</h2>
+                    <h2 class="articleTitle"></h2>
+                    <input class="deleteArticleId" type="hidden" />
+                    <button class="btn btn-danger btn-sm deleteArticleValidation" type="button">Supprimer</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary closer" data-bs-dismiss="modal">Annuler</button>
                 </div>
             </div>
         </div>
@@ -123,6 +149,9 @@
     <script src="../fetch/infos.js"></script>
     <script src="../fetch/general.js"></script>
     <script src="../fetch/adminblogList.js"></script>
+    <script src="../js/ckeditor5-build-classic/ckeditor.js"></script>
+    <script src="../js/ckeditor5-build-classic/translations/fr.js"></script>
+   <!-- <script src="../js/editor.js"></script> -->
     <script src="../renderer.js"></script>
 </body>
 

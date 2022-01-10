@@ -19,8 +19,8 @@ $(document).ready(function () {
                         var contentIsOnline = '<button type="button" data-id="' + responseData[resp].id + '" data-online="' + responseData[resp].contentIsOnline + '" class="btn btn-outline-danger btn-sm isOffline">Offline</button>'
                         var statusClass = 'offlineArticle'
                     }
-                    var status = '<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"><button class="btn btn-primary btn-sm modif" data-bs-toggle="modal" data-bs-target="#modalModif" data-id="' + responseData[resp].id + '" type="button">Modifier</button></div>' +
-                        '<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"><button class="btn btn-danger btn-sm delete" data-deleteId="' + responseData[resp].id + '" type="button">Supprimer</button></div>'
+                    var status = '<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"><button class="btn btn-primary btn-sm modif mt-2" data-bs-toggle="modal" data-bs-target="#modalModif" data-id="' + responseData[resp].id + '" type="button">Modifier</button></div>' +
+                        '<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"><button class="btn btn-danger btn-sm delete deleteArticle mt-2" data-bs-toggle="modal" data-bs-target="#deleteArticleModal" data-id="' + responseData[resp].id + '" data-deleteId="' + responseData[resp].id + '" type="button">Supprimer</button></div>'
                     var date = new Date(responseData[resp].contentDate)
                     var options = { weekday: "short", year: "numeric", month: "long", day: "2-digit" };
                     var fullDate = date.toLocaleDateString("fr-FR", options)
@@ -182,47 +182,49 @@ $(document).on('click', '.modif', function (event) {
             })
             if (response.ok) {
                 let responseThisArticle = await response.json()
+                $i = 0;
                 if (responseThisArticle.contentIsOnline == 1) {
                     $('.articleModalModif').append('<h3>Vous ne pouvez pas modifier un article qui est en ligne.</h3>')
                 } else {
                     var myArticleModif = '<div class="col-12 text-center"><p class="mod">Titre de l\'article</p><input class="form-control mainTitle" type="text" value="' +
-                        responseThisArticle.contentTitle + '" /></div><div class="text-center"><button class="btn btn-primary btn-sm modifValid mainTitleValid" data-id="' +
+                        responseThisArticle.contentTitle + '" /></div><div class="text-center"><button class="btn btn-primary btn-sm modifValid mainTitleValid mt-2" data-id="' +
                         responseThisArticle.id + '" type="button">Valider la modification</button></div><div class="mainTitleValidation text-center"></div><div class="col-12 modalPhoto mb-3"><img class="img-fluid"' +
                         'src="https://www.api.apajh.jeseb.fr/public' + responseThisArticle.photo[0].photoLink + '" alt="' + responseThisArticle.photo[0].photoText +
                         '"><br /><p class="mod">Titre de la photo</p><input class="form-control" type="text" value="' + responseThisArticle.photo[0].photoText +
-                        '" /></div><div class="text-center"><button class="btn btn-primary btn-sm modifValid" data-id="' + responseThisArticle.photo[0].id +
+                        '" /></div><div class="text-center"><button class="btn btn-primary btn-sm modifValid mt-2" data-id="' + responseThisArticle.photo[0].id +
                         '" type="button">Valider la modification</button></div><div class="validationOk"></div>'
                     for (var para in responseThisArticle.paragraph) {
+                        $i++;
+                        var textareaModif = '<textarea id="myModif" class="form-control myModif myModif' + $i + '" data-class="myModif' + $i + '">' + responseThisArticle.paragraph[para].text + '</textarea>'
                         var allParaModif = '<div class="title"><p class="mod">Titre du paragraphe (facultatif)</p><input class="form-control paraTitle" type="text" value="' +
                             (responseThisArticle.paragraph[para].title == null ? '' : responseThisArticle.paragraph[para].title) + '" /></div>' +
-                            '<div class="text-center"><button class="btn btn-primary btn-sm paraTitleModifValid" data-id="' + responseThisArticle.paragraph[para].id +
+                            '<div class="text-center"><button class="btn btn-primary btn-sm paraTitleModifValid mt-2" data-id="' + responseThisArticle.paragraph[para].id +
                             '" type="button">Valider la modification</button></div><div class="paraTitleValidation text-center"></div>' +
-                            '<div class="col-12 onePara"><p class="mod">paragraphe :</p><textarea id="myModif" class="form-control">' + responseThisArticle.paragraph[para].text + '</textarea></div>' +
-                            '<div class="text-center"><button class="btn btn-primary btn-sm paraTextModifValid" data-id="' + responseThisArticle.paragraph[para].id +
+                            '<div class="col-12 onePara"><p class="mod">paragraphe :</p>' + textareaModif + '</div>' +
+                            '<div class="text-center"><button class="btn btn-primary btn-sm paraTextModifValid mt-2" id="textValid_' + $i + '" data-id="' + responseThisArticle.paragraph[para].id +
                             '" type="button">Valider la modification</button></div><div class="paraTextValidation text-center"></div>'
                         for (var paraphoto in responseThisArticle.paragraph_photos) {
                             var allParaModif = '<div class="title"><p class="mod">Titre du paragraphe (facultatif)</p><input class="form-control paraTitle" type="text" value="' +
                                 (responseThisArticle.paragraph[para].title == null ? '' : responseThisArticle.paragraph[para].title) + '" /></div>' +
-                                '<div class="text-center"><button class="btn btn-primary btn-sm paraTitleModifValid" data-id="' + responseThisArticle.paragraph[para].id +
+                                '<div class="text-center"><button class="btn btn-primary btn-sm paraTitleModifValid mt-2" data-id="' + responseThisArticle.paragraph[para].id +
                                 '" type="button">Valider la modification</button></div><div class="paraTitleValidation text-center"></div>' +
-                                '<div class="col-12 onePara"><p class="mod">paragraphe :</p><textarea id="myModif" class="form-control">' + responseThisArticle.paragraph[para].text + '</textarea></div>' +
-                                '<div class="text-center"><button class="btn btn-primary btn-sm paraTextModifValid" data-id="' + responseThisArticle.paragraph[para].id +
+                                '<div class="col-12 onePara"><p class="mod">paragraphe :</p>' + textareaModif + '</div>' +
+                                '<div class="text-center"><button class="btn btn-primary btn-sm paraTextModifValid mt-2" id="textValid_' + $i + '" data-id="' + responseThisArticle.paragraph[para].id +
                                 '" type="button">Valider la modification</button></div><div class="paraTextValidation text-center"></div>'
                             if (responseThisArticle.paragraph_photos != null) {
                                 if (responseThisArticle.paragraph_photos[paraphoto].id_paragraph == responseThisArticle.paragraph[para].id) {
                                     var allParaModif = '<div class="row"><div class="col-6 semiPara"><img class="img-fluid photoP" src="https://www.api.apajh.jeseb.fr/public' +
                                         responseThisArticle.paragraph_photos[paraphoto].photoLink + '" alt="' +
-                                        responseThisArticle.paragraph_photos[paraphoto].photoText + '"></div><div class="col-6 semiPara semi"><p class="mod">demi-paragraphe :</p><textarea id="myModif" class="form-control">' +
-                                        responseThisArticle.paragraph[para].text + '</textarea>' +
-                                        '<button class="btn btn-primary btn-sm paraSemiTextModifValid" data-id="' + responseThisArticle.paragraph[para].id +
+                                        responseThisArticle.paragraph_photos[paraphoto].photoText + '"></div><div class="col-6 semiPara semi"><p class="mod">demi-paragraphe :</p>' + textareaModif +
+                                        '<button class="btn btn-primary btn-sm paraSemiTextModifValid mt-2" data-id="' + responseThisArticle.paragraph[para].id +
                                         '" type="button">Valider la modification</button></div><div class="paraSemiTextValidation text-center"></div></div>'
                                 } else {
                                     var allParaModif = '<div class="title"><p class="mod">Titre du paragraphe (facultatif)</p><input class="form-control paraTitle" type="text" value="' +
                                         (responseThisArticle.paragraph[para].title == null ? '' : responseThisArticle.paragraph[para].title) + '" /></div>' +
-                                        '<div class="text-center"><button class="btn btn-primary btn-sm paraTitleModifValid" data-id="' + responseThisArticle.paragraph[para].id +
+                                        '<div class="text-center"><button class="btn btn-primary btn-sm paraTitleModifValid mt-2" data-id="' + responseThisArticle.paragraph[para].id +
                                         '" type="button">Valider la modification</button></div><div class="paraTitleValidation text-center"></div>' +
-                                        '<div class="col-12 onePara"><p class="mod">paragraphe :</p><textarea id="myModif" class="form-control">' + responseThisArticle.paragraph[para].text + '</textarea></div>' +
-                                        '<div class="text-center"><button class="btn btn-primary btn-sm paraTextModifValid" data-id="' + responseThisArticle.paragraph[para].id +
+                                        '<div class="col-12 onePara"><p class="mod">paragraphe :</p>' + textareaModif + '</div>' +
+                                        '<div class="text-center"><button class="btn btn-primary btn-sm paraTextModifValid mt-2" id="textValid_' + $i + '" data-id="' + responseThisArticle.paragraph[para].id +
                                         '" type="button">Valider la modification</button></div><div class="paraTextValidation text-center"></div>'
                                 }
                             }
@@ -232,11 +234,36 @@ $(document).on('click', '.modif', function (event) {
                     $('.articleModalModif').append(myArticleModif)
                     if (responseThisArticle.carousel == '1') {
                         for (var car in responseThisArticle.photo) {
-                            var otherImgModif = '<div class="photosModif text-center"><img src="https://www.api.apajh.jeseb.fr/public' + responseThisArticle.photo[car].photoLink + '" class="d-block w-100" alt="' + responseThisArticle.photo[car].photoText + '" title="' + responseThisArticle.photo[car].photoTitle + '"></div>'
+                            var otherImgModif = '<div class="photosModif"><img src="https://www.api.apajh.jeseb.fr/public' + responseThisArticle.photo[car].photoLink + '" class="d-block w-100" alt="' + responseThisArticle.photo[car].photoText + '" title="' + responseThisArticle.photo[car].photoTitle + '"><button class="btn btn-danger btn-sm deleteCarouselPhoto" type="button" data-id="' + responseThisArticle.photo[car].id + '">Supprimer</button><hr /></div>'
                             $('.photos').append(otherImgModif)
                         }
+                        $('.hiddenArticleId').attr('value', responseThisArticle.id)
+
                     }
                 }
+                // intégration de ckeditor
+                $('textarea').each(function () {
+                    let editor;
+                    ClassicEditor
+                        .create(document.querySelector('.' + $(this).attr('data-class')), {
+                            language: {
+                                ui: 'fr',
+                                content: 'fr'
+                            },
+                            toolbar: ['heading', '|', 'bold', '|', 'italic', '|', 'link', '|', 'bulletedList', '|', 'numberedList', '|', 'blockQuote'],
+                            heading: {
+                                options: [
+                                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' }
+                                ]
+                            }
+                        })
+                        .then(newEditor => {
+                            editor = newEditor;
+                        })
+                        .catch(e => {
+                            console.log(e);
+                        });
+                });
             } else {
                 console.error('Retour : ', response.status)
                 console.log('toto')
@@ -328,6 +355,7 @@ $(document).on('click', '.paraTitleModifValid', function (event) {
 $(document).on('click', '.paraTextModifValid', function (event) {
     event.preventDefault();
     var result = $(this).parent().next()
+
     $('.paraTextValidation').css('display', 'block')
     async function modifTitle(data) {
         try {
@@ -341,13 +369,14 @@ $(document).on('click', '.paraTextModifValid', function (event) {
             })
             if (response.ok) {
                 let responseDataArticle = await response.json()
-                result.append('<p class="isOk">La modification du titre du paragraphe à bien été prise en compte.</p>')
-                setTimeout(function () {
+                console.log()
+                result.append('<p class="isOk">La modification du paragraphe à bien été prise en compte.</p>')
+                setTimeout(function (responseDataArticle) {
                     $('.paraTextValidation').fadeOut().empty();
                 }, 5000);
             } else {
                 console.error('Retour : ', response.status)
-                result.append('<p class="isNotOk">Une erreur est survenue durant la modification du titre du paragraphe, merci de renouveller l\'opération.</p>')
+                result.append('<p class="isNotOk">Une erreur est survenue durant la modification du paragraphe, merci de renouveller l\'opération.</p>')
                 setTimeout(function () {
                     $('.paraTextValidation').fadeOut().empty();
                 }, 5000);
@@ -359,7 +388,7 @@ $(document).on('click', '.paraTextModifValid', function (event) {
     modifTitle({
         title: $(this).parent().prev().prev().prev().prev().find('input').val(),
         id: $(this).attr('data-id'),
-        text: $(this).parent().prev().find('textarea').val()
+        text: $(this).parent().prev().find('.ck-editor__editable').children().prevObject[0].innerHTML
     })
 })
 // Modification d'un semi-paragraphe
@@ -399,7 +428,7 @@ $(document).on('click', '.paraSemiTextModifValid', function (event) {
     modifTitle({
         title: null,
         id: $(this).attr('data-id'),
-        text: $(this).parent().find('textarea').val()
+        text: $(this).prev().find('.ck-editor__editable').children().prevObject[0].innerHTML
     })
 })
 
@@ -407,4 +436,196 @@ $(document).on('click', '.paraSemiTextModifValid', function (event) {
 $(document).on('click', '.closer', function (event) {
     event.preventDefault();
     window.location.reload();
+})
+//
+// Faire apparaitre la modification de photo semi-paragraphe
+
+$(document).on('click', '.photoModif', function (event) {
+    event.preventDefault();
+    $('input.photoModification').css('display', 'block')
+    $('input.photoModificationText').css('display', 'block')
+    $('span.photoModification').css('display', 'block')
+    $('.photoModif').addClass('photoModifNot')
+})
+$(document).on('click', '.photoModifNot', function (event) {
+    event.preventDefault();
+    $('input.photoModification').css('display', 'none')
+    $('input.photoModificationText').css('display', 'none')
+    $('span.photoModification').css('display', 'none')
+    $('.photoModifNot').removeClass('photoModifNot')
+})
+
+// Modification de photo semi-paragraphe
+$(document).on('change', '.photoModification', function (event) {
+    event.preventDefault();
+    const deleteParaPhotoPhoto = async function (data) {
+        try {
+            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/text-photo', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                },
+                body: JSON.stringify(data)
+            })
+            if (response.ok) {
+                let responseData = await response.json()
+                const formData = new FormData();
+                const file = event.target.files[0];
+                formData.set('file', file);
+                formData.set('photoTitle', $('.photoModificationText').val());
+                formData.set('photoText', $('.photoModificationText').val());
+                formData.set('id_paragraph', $('.photoModification.semiParaPhotoModif').attr('data-paragraph'))
+                try {
+                    let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/text-photo', {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': 'Bearer ' + localStorage.getItem('token')
+                        },
+                        body: formData
+                    })
+                    if (response.ok) {
+                        let responseData = await response.json()
+                        window.location.reload();
+                    } else {
+                        console.error('Retour : ', response.status)
+                    }
+                } catch (e) {
+                    console.log(e)
+                }
+            } else {
+                console.error('Retour : ', response.status)
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
+    deleteParaPhotoPhoto({
+        fileName: $(this).attr('data-photoName')
+    })
+})
+//Supprimer une photo du carousel
+$(document).on('click', '.deleteCarouselPhoto', function (event) {
+    event.preventDefault();
+    const deleteCarouselPhoto = async function (data) {
+        try {
+            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/photo', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                },
+                body: JSON.stringify(data)
+            })
+            if (response.ok) {
+                window.location.reload();
+            } else {
+                console.error('Retour : ', response.status)
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
+    deleteCarouselPhoto({
+        id: $(this).attr('data-id')
+    })
+})
+// Ajouter une nouvelle photo dans la modification
+$(document).on('click', '.addNewPhoto', function (event) {
+    event.preventDefault();
+    $('.addPhotoFileCarousel').css('display', 'block')
+    $('.addPhotoTitleCarousel').css('display', 'block')
+    $('.addNewPhotoSpan').css('display', 'block')
+    $('.addNewPhoto').addClass('addNewPhotoNot')
+})
+$(document).on('click', '.addNewPhotoNot', function (event) {
+    event.preventDefault();
+    $('.addPhotoFileCarousel').css('display', 'none')
+    $('.addPhotoTitleCarousel').css('display', 'none')
+    $('.addNewPhotoSpan').css('display', 'none')
+    $('.addNewPhoto').removeClass('addNewPhotoNot')
+})
+
+$('.addOnePhotoToCarousel').on('change', function (event) {
+    event.preventDefault();
+    addOnePhoto(event)
+});
+const addOnePhoto = async function (event) {
+    const formData = new FormData();
+    const file = event.target.files[0];
+    formData.set('file', file);
+    formData.set('photoTitle', $('.addPhotoTitleCarousel').val());
+    formData.set('photoText', $('.addPhotoTitleCarousel').val());
+    formData.set('id_content', $('.hiddenArticleId').val())
+    try {
+        let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/photo', {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            },
+            body: formData
+        })
+        if (response.ok) {
+            let responseData = await response.json()
+            window.location.reload();
+        } else {
+            console.error('Retour : ', response.status)
+        }
+    } catch (e) {
+        console.log(e)
+    }
+}
+// Supprimer un article
+$(document).on('click', '.deleteArticle', function (event) {
+    event.preventDefault();
+    var articleId = $(this).attr('data-id')
+    const getThisArticles = async function (data) {
+        try {
+            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/articles/' + articleId, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            })
+            if (response.ok) {
+                let responseThisArticle = await response.json()
+               $('.articleTitle').append('"' + responseThisArticle.contentTitle + '"')
+               $('.deleteArticleValidation').attr('data-id', responseThisArticle.id)
+               
+            } else {
+                console.error('Retour : ', response.status)
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
+    getThisArticles()
+})
+//validation de suppression d'article
+$(document).on('click', '.deleteArticleValidation', function (event) {
+    event.preventDefault();
+    const deleteThisArticles = async function (data) {
+        try {
+            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/article', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                },
+                body: JSON.stringify(data)
+            })
+            if (response.ok) {
+                let responseThisArticle = await response.json()
+                window.location.reload();
+            } else {
+                console.error('Retour : ', response.status)
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
+    deleteThisArticles({
+        id: $(this).attr('data-id')
+    })
 })

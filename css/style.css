@@ -247,6 +247,11 @@ a.ime {
     text-align: left;
 }
 
+.oeilConstru {
+    color: #5970B1;
+    cursor: pointer;
+}
+
 .oeil {
     margin: 10px auto;
 }
@@ -437,6 +442,7 @@ a.menu_item.admin {
 }
 
 .mainPhoto {
+    margin-top: 5vh;
     display: none;
 }
 
@@ -449,7 +455,7 @@ a.menu_item.admin {
     display: none;
 }
 
-.paragraf, .paragrafPhoto, .photo, .galeryValidation {
+.paragraf, .photo, .galeryValidation, .paragrafPhotoPara, .paragrafPhotoPhoto {
     display: none;
 }
 
@@ -572,6 +578,51 @@ span.oeilSpan {
     cursor: pointer;
 }
 
+input.photoModification, input.photoModificationText, span.photoModification {
+    display: none;
+}
+
+.addPhotoFileCarousel, .addPhotoTitleCarousel, .addNewPhotoSpan {
+    display: none;
+}
+
+/* Création d'un article */
+
+.mainTitle {
+    margin-top: 5vh;
+}
+
+
+
+.firstStepArticle {
+    margin-top: 10vh;
+}
+
+p.articleTitleError {
+    color: red;
+}
+
+p.articleTitleOk {
+    color: blue;
+}
+
+.addAnyItem {
+    margin-top: 10vh;
+    height: 20vh;
+    line-height: 20vh;
+    background-color: #f49f5cff;
+    box-shadow: 5px 5px 5px grey;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn.return {
+    text-decoration: none;
+    color: #fff;
+    background-color: #CF4D6F;
+    border-color: #CF4D6F;
+}
+
 /* adminUsers */
 .oneUser {
     height: 5vh;
@@ -677,4 +728,18 @@ span.inscrit, div.inscrit {
 
 .mailError, .pwdError, .pwdVError, .errorMsg {
     color: red;
+}
+
+.firstStep {
+    margin-top: 15vh;
+}
+
+.ck-editor__editable {
+    min-height: 30vh;
+}
+
+/* Permet de resoudre le confli entre la modale bootstrap et ck editor */
+:root {
+    --ck-z-default: 100;
+    --ck-z-modal: calc(var(--ck-z-default) + 9999) !important;
 }

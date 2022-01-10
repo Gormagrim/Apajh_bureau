@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.api.apajh.jeseb.fr/public/v1/" />
+    <meta http-equiv="X-Content-Security-Policy"
+        content="script-src 'self' https://www.api.apajh.jeseb.fr/public/v1/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous" />
+    <title>Apajh Station</title>
+</head>
+
+<div class="col-6 semiPara semi">
+    <p class="mod">demi-paragraphe :</p><textarea id="myModif" class="form-control myModif myModif4"
+        data-class="myModif4" style="display: none;"
+        data-value="<p>Ceci est un paragraphe partagé avec une magnifique photo.</p>">Ceci est un paragraphe partagé avec une magnifique photo.</textarea>
+    <div class="ck ck-reset ck-editor ck-rounded-corners" role="application" dir="ltr" lang="fr-fr"
+        aria-labelledby="ck-editor__label_e42259d1fb0671f8919204d9afa3155ee"><label class="ck ck-label ck-voice-label"
+            id="ck-editor__label_e42259d1fb0671f8919204d9afa3155ee">Rich Text Editor</label>
+        <div class="ck ck-editor__top ck-reset_all" role="presentation">
+            <div class="ck ck-sticky-panel">
+                <div class="ck ck-sticky-panel__placeholder" style="display: none;"></div>
+                <div class="ck ck-sticky-panel__content">
+                    <div class="ck ck-toolbar ck-toolbar_grouping" role="toolbar" aria-label="Editor toolbar">
+                        <div class="ck ck-toolbar__items">
+                            <div class="ck ck-dropdown ck-heading-dropdown"><button
+                                    class="ck ck-button ck-off ck-button_with-text ck-dropdown__button" type="button"
+                                    tabindex="-1"
+                                    aria-labelledby="ck-editor__aria-label_e4bfa2e4ac1e084d55ccec7b1a1f5ccb4"
+                                    aria-haspopup="true"><span class="ck ck-tooltip ck-tooltip_s"><span
+                                            class="ck ck-tooltip__text">Heading</span></span><span
+                                        class="ck ck-button__label"
+                                        id="ck-editor__aria-label_e4bfa2e4ac1e084d55ccec7b1a1f5ccb4">Paragraph</span><svg
+                                        class="ck ck-icon ck-dropdown__arrow" viewBox="0 0 10 10">
+                                        <path
+                                            d="M.941 4.523a.75.75 0 1 1 1.06-1.06l3.006 3.005 3.005-3.005a.75.75 0 1 1 1.06 1.06l-3.549 3.55a.75.75 0 0 1-1.168-.136L.941 4.523z">
+                                        </path>
+                                    </svg></button>
+                                <div class="ck ck-reset ck-dropdown__panel ck-dropdown__panel_se">
+                                    <ul class="ck ck-reset ck-list">
+                                        <li class="ck ck-list__item"><button
+                                                class="ck ck-button ck-heading_paragraph ck-on ck-button_with-text"
+                                                type="button" tabindex="-1"
+                                                aria-labelledby="ck-editor__aria-label_ec06177a6134fd128ac81d3589a40103d"><span
+                                                    class="ck ck-tooltip ck-tooltip_s ck-hidden"><span
+                                                        class="ck ck-tooltip__text"></span></span><span
+                                                    class="ck ck-button__label"
+                                                    id="ck-editor__aria-label_ec06177a6134fd128ac81d3589a40103d">Paragraph</span></button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div><span class="ck ck-toolbar__separator"></span><button class="ck ck-button ck-off"
+                                type="button" tabindex="-1"
+                                aria-labelledby="ck-editor__aria-label_e6d13e3d5f1ee60422ef3f5006b246577"
+                                aria-pressed="false"><svg class="ck ck-icon ck-button__icon" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10.187 17H5.773c-.637 0-1.092-.138-1.364-.415-.273-.277-.409-.718-.409-1.323V4.738c0-.617.14-1.062.419-1.332.279-.27.73-.406 1.354-.406h4.68c.69 0 1.288.041 1.793.124.506.083.96.242 1.36.478.341.197.644.447.906.75a3.262 3.262 0 0 1 .808 2.162c0 1.401-.722 2.426-2.167 3.075C15.05 10.175 16 11.315 16 13.01a3.756 3.756 0 0 1-2.296 3.504 6.1 6.1 0 0 1-1.517.377c-.571.073-1.238.11-2 .11zm-.217-6.217H7v4.087h3.069c1.977 0 2.965-.69 2.965-2.072 0-.707-.256-1.22-.768-1.537-.512-.319-1.277-.478-2.296-.478zM7 5.13v3.619h2.606c.729 0 1.292-.067 1.69-.2a1.6 1.6 0 0 0 .91-.765c.165-.267.247-.566.247-.897 0-.707-.26-1.176-.778-1.409-.519-.232-1.31-.348-2.375-.348H7z">
+                                    </path>
+                                </svg><span class="ck ck-tooltip ck-tooltip_s"><span class="ck ck-tooltip__text">Bold
+                                        (Ctrl+B)</span></span><span class="ck ck-button__label"
+                                    id="ck-editor__aria-label_e6d13e3d5f1ee60422ef3f5006b246577">Bold</span></button><span
+                                class="ck ck-toolbar__separator"></span><button class="ck ck-button ck-off"
+                                type="button" tabindex="-1"
+                                aria-labelledby="ck-editor__aria-label_eaf91011cbf014820821a147db18de485"
+                                aria-pressed="false"><svg class="ck ck-icon ck-button__icon" viewBox="0 0 20 20">
+                                    <path
+                                        d="m9.586 14.633.021.004c-.036.335.095.655.393.962.082.083.173.15.274.201h1.474a.6.6 0 1 1 0 1.2H5.304a.6.6 0 0 1 0-1.2h1.15c.474-.07.809-.182 1.005-.334.157-.122.291-.32.404-.597l2.416-9.55a1.053 1.053 0 0 0-.281-.823 1.12 1.12 0 0 0-.442-.296H8.15a.6.6 0 0 1 0-1.2h6.443a.6.6 0 1 1 0 1.2h-1.195c-.376.056-.65.155-.823.296-.215.175-.423.439-.623.79l-2.366 9.347z">
+                                    </path>
+                                </svg><span class="ck ck-tooltip ck-tooltip_s"><span class="ck ck-tooltip__text">Italic
+                                        (Ctrl+I)</span></span><span class="ck ck-button__label"
+                                    id="ck-editor__aria-label_eaf91011cbf014820821a147db18de485">Italic</span></button><span
+                                class="ck ck-toolbar__separator"></span><button class="ck ck-button ck-off"
+                                type="button" tabindex="-1"
+                                aria-labelledby="ck-editor__aria-label_e99db1296346605e327e1fbe63c75fd9b"
+                                aria-pressed="false"><svg class="ck ck-icon ck-button__icon" viewBox="0 0 20 20">
+                                    <path
+                                        d="m11.077 15 .991-1.416a.75.75 0 1 1 1.229.86l-1.148 1.64a.748.748 0 0 1-.217.206 5.251 5.251 0 0 1-8.503-5.955.741.741 0 0 1 .12-.274l1.147-1.639a.75.75 0 1 1 1.228.86L4.933 10.7l.006.003a3.75 3.75 0 0 0 6.132 4.294l.006.004zm5.494-5.335a.748.748 0 0 1-.12.274l-1.147 1.639a.75.75 0 1 1-1.228-.86l.86-1.23a3.75 3.75 0 0 0-6.144-4.301l-.86 1.229a.75.75 0 0 1-1.229-.86l1.148-1.64a.748.748 0 0 1 .217-.206 5.251 5.251 0 0 1 8.503 5.955zm-4.563-2.532a.75.75 0 0 1 .184 1.045l-3.155 4.505a.75.75 0 1 1-1.229-.86l3.155-4.506a.75.75 0 0 1 1.045-.184z">
+                                    </path>
+                                </svg><span class="ck ck-tooltip ck-tooltip_s"><span class="ck ck-tooltip__text">Link
+                                        (Ctrl+K)</span></span><span class="ck ck-button__label"
+                                    id="ck-editor__aria-label_e99db1296346605e327e1fbe63c75fd9b">Link</span></button><span
+                                class="ck ck-toolbar__separator"></span><button class="ck ck-button ck-off"
+                                type="button" tabindex="-1"
+                                aria-labelledby="ck-editor__aria-label_ee59d1340cf2527a0d7f1be0bd3560ac2"
+                                aria-pressed="false"><svg class="ck ck-icon ck-button__icon" viewBox="0 0 20 20">
+                                    <path
+                                        d="M7 5.75c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zm-6 0C1 4.784 1.777 4 2.75 4c.966 0 1.75.777 1.75 1.75 0 .966-.777 1.75-1.75 1.75C1.784 7.5 1 6.723 1 5.75zm6 9c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zm-6 0c0-.966.777-1.75 1.75-1.75.966 0 1.75.777 1.75 1.75 0 .966-.777 1.75-1.75 1.75-.966 0-1.75-.777-1.75-1.75z">
+                                    </path>
+                                </svg><span class="ck ck-tooltip ck-tooltip_s"><span
+                                        class="ck ck-tooltip__text">Bulleted List</span></span><span
+                                    class="ck ck-button__label"
+                                    id="ck-editor__aria-label_ee59d1340cf2527a0d7f1be0bd3560ac2">Bulleted
+                                    List</span></button><span class="ck ck-toolbar__separator"></span>
+                        </div><span class="ck ck-toolbar__separator"></span>
+                        <div class="ck ck-dropdown ck-toolbar__grouped-dropdown ck-toolbar-dropdown"><button
+                                class="ck ck-button ck-off ck-dropdown__button" type="button" tabindex="-1"
+                                aria-labelledby="ck-editor__aria-label_edb507b32cf1e13396f83c1bcfa44bef8"
+                                aria-haspopup="true"><svg class="ck ck-icon ck-button__icon" viewBox="0 0 20 20">
+                                    <circle cx="9.5" cy="4.5" r="1.5"></circle>
+                                    <circle cx="9.5" cy="10.5" r="1.5"></circle>
+                                    <circle cx="9.5" cy="16.5" r="1.5"></circle>
+                                </svg><span class="ck ck-tooltip ck-tooltip_sw"><span class="ck ck-tooltip__text">Show
+                                        more items</span></span><span class="ck ck-button__label"
+                                    id="ck-editor__aria-label_edb507b32cf1e13396f83c1bcfa44bef8">Show more
+                                    items</span><svg class="ck ck-icon ck-dropdown__arrow" viewBox="0 0 10 10">
+                                    <path
+                                        d="M.941 4.523a.75.75 0 1 1 1.06-1.06l3.006 3.005 3.005-3.005a.75.75 0 1 1 1.06 1.06l-3.549 3.55a.75.75 0 0 1-1.168-.136L.941 4.523z">
+                                    </path>
+                                </svg></button>
+                            <div class="ck ck-reset ck-dropdown__panel ck-dropdown__panel_se">
+                                <div class="ck ck-toolbar" role="toolbar" aria-label="Dropdown toolbar">
+                                    <div class="ck ck-toolbar__items"><button class="ck ck-button ck-off" type="button"
+                                            tabindex="-1"
+                                            aria-labelledby="ck-editor__aria-label_e1726f22125363d37312d7b8e12851630"
+                                            aria-pressed="false"><svg class="ck ck-icon ck-button__icon"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M7 5.75c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zM3.5 3v5H2V3.7H1v-1h2.5V3zM.343 17.857l2.59-3.257H2.92a.6.6 0 1 0-1.04 0H.302a2 2 0 1 1 3.995 0h-.001c-.048.405-.16.734-.333.988-.175.254-.59.692-1.244 1.312H4.3v1h-4l.043-.043zM7 14.75a.75.75 0 0 1 .75-.75h9.5a.75.75 0 1 1 0 1.5h-9.5a.75.75 0 0 1-.75-.75z">
+                                                </path>
+                                            </svg><span class="ck ck-tooltip ck-tooltip_s"><span
+                                                    class="ck ck-tooltip__text">Numbered List</span></span><span
+                                                class="ck ck-button__label"
+                                                id="ck-editor__aria-label_e1726f22125363d37312d7b8e12851630">Numbered
+                                                List</span></button><span
+                                            class="ck ck-toolbar__separator"></span><button class="ck ck-button ck-off"
+                                            type="button" tabindex="-1"
+                                            aria-labelledby="ck-editor__aria-label_ecf1b3bdc8f44c586795f0ee65075cbc8"
+                                            aria-pressed="false"><svg class="ck ck-icon ck-button__icon"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M3 10.423a6.5 6.5 0 0 1 6.056-6.408l.038.67C6.448 5.423 5.354 7.663 5.22 10H9c.552 0 .5.432.5.986v4.511c0 .554-.448.503-1 .503h-5c-.552 0-.5-.449-.5-1.003v-4.574zm8 0a6.5 6.5 0 0 1 6.056-6.408l.038.67c-2.646.739-3.74 2.979-3.873 5.315H17c.552 0 .5.432.5.986v4.511c0 .554-.448.503-1 .503h-5c-.552 0-.5-.449-.5-1.003v-4.574z">
+                                                </path>
+                                            </svg><span class="ck ck-tooltip ck-tooltip_s"><span
+                                                    class="ck ck-tooltip__text">Block quote</span></span><span
+                                                class="ck ck-button__label"
+                                                id="ck-editor__aria-label_ecf1b3bdc8f44c586795f0ee65075cbc8">Block
+                                                quote</span></button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ck ck-editor__main" role="presentation">
+            <div class="ck-blurred ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline"
+                lang="fr-fr" dir="ltr" role="textbox" aria-label="Rich Text Editor, main" contenteditable="true">
+                <p>Ceci est un paragraphe partagé avec une magnifique photo.</p>
+            </div>
+        </div>
+    </div><button class="btn btn-primary btn-sm paraSemiTextModifValid" data-id="221" type="button">Valider la
+        modification</button>
+</div>
+</div><button class="btn btn-primary btn-sm paraSemiTextModifValid" data-id="221" type="button">Valider la
+    modification</button>
+</div>
+<button class="btn btn-primary btn-sm paraSemiTextModifValid" data-id="221" type="button">Valider la
+    modification</button>
+
+<body>
+    <div class="container-fluid">
+
+    </div>
+    <script src="../js/jquery-3.6.6.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../fetch/infos.js"></script>
+    <script src="../fetch/general.js"></script>
+    <script src="../fetch/adminblogList.js"></script>
+    <script src="../js/ckeditor5-build-classic/ckeditor.js"></script>
+    <!-- <script src="../js/editor.js"></script> -->
+    <script src="../renderer.js"></script>
+</body>
+
+</html>
