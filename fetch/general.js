@@ -30,7 +30,7 @@ $(document).ready(function () {
             if (response.ok) {
                 let responseCountOfflineVideos = await response.json()
                 if (responseCountOfflineVideos > 0) {
-                    $('.offlineVideos').append('<a class="iconA" href="../views/adminLsf.html"><i class="fas fa-sign-language icon" title="Vous avez ' + responseCountOfflineVideos + (responseCountOfflineVideos > 1 ? ' vidéos' : ' vidéo') + ' à contrôller et à mettre en ligne">' + responseCountOfflineVideos + '</i></a>')
+                    $('.offlineVideos').append('<a class="iconA" href="../views/adminLsf.html"><i class="fas fa-sign-language fa-2x icon" title="Vous avez ' + responseCountOfflineVideos + (responseCountOfflineVideos > 1 ? ' vidéos' : ' vidéo') + ' à contrôller et à mettre en ligne">' + responseCountOfflineVideos + '</i></a>')
                     $('.offlineVideosText').append('Vous avez ' + responseCountOfflineVideos + (responseCountOfflineVideos > 1 ? ' vidéos' : ' vidéo') + ' à contrôller et à mettre en ligne')
                 }
             } else {
@@ -42,7 +42,34 @@ $(document).ready(function () {
     }
     offlineNumber()
 });
+// Articles à mettre en ligne
 
+$(document).ready(function () {
+    const offlineNumber = async function (data) {
+        try {
+            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/countOfflineArticle', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            })
+            if (response.ok) {
+                let responseCountOfflineArticle = await response.json()
+                console.log(responseCountOfflineArticle)
+                if (responseCountOfflineArticle > 0) {
+                    $('.offlineVideos').append('<a class="iconA" href="../views/adminLsf.html"><i class="far fa-file-alt fa-2x icon" title="Vous avez ' + responseCountOfflineArticle + (responseCountOfflineArticle > 1 ? ' articles' : ' article') + ' à contrôller et à mettre en ligne">' + responseCountOfflineArticle + '</i></a>')
+                    $('.offlineArticleText').append('Vous avez ' + responseCountOfflineArticle + (responseCountOfflineArticle > 1 ? ' articles' : ' article') + ' à contrôller et à mettre en ligne')
+                }
+            } else {
+                console.error('Retour : ', response.status)
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
+    offlineNumber()
+});
 // Gestion de la fin de session
 $(document).ready(function () {
     if (Date.now() > localStorage.getItem('logoutTime')) {

@@ -324,6 +324,39 @@ $('.addParagrafPhotoPara').on('click', function (event) {
     })
 })
 
+//Gérer l'affichage du demi paragraphe quand il y en a dèjà un
+
+$(document).change(function (event) {
+    event.preventDefault();
+    var articleId = $('#articleId').val()
+    console.log(articleId)
+    const getThisArticless = async function (data) {
+        try {
+            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/articles/' + articleId, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            })
+            if (response.ok) {
+                let responseDataa = await response.json()
+                console.log(responseDataa)
+                if (responseDataa.paragraph_photos.length != 0){
+                    $('.addOneSemiPara').css('display', 'none')
+                }
+            } else {
+                console.error('Retour : ', response.status)
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
+    getThisArticless({
+        id: $('#articleId').val()
+    })
+})
+
 // Ajouter une photo a un paragraphe
 $('.addParagrafPhoto').on('change', function (event) {
     event.preventDefault();
@@ -334,7 +367,7 @@ const addParagrafPhoto = async function (event) {
     const file = event.target.files[0];
     formData.set('file', file);
     formData.set('photoTitle', $('.paragrafPhotoTitle').val());
-    formData.set('photoText', $('.paragrafPhotoText').val());
+    formData.set('photoText', $('.paragrafPhotoTitle').val());
     formData.set('id_paragraph', $('.hiddenParaId').attr('data-id'))
     try {
         let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/text-photo', {
@@ -346,6 +379,7 @@ const addParagrafPhoto = async function (event) {
         })
         if (response.ok) {
             let responseData = await response.json()
+
             $('.paragrafPhoto').css('display', 'none')
             $('.addAny').css('display', 'block')
             const getBlogContent = async function (data) {
@@ -410,6 +444,14 @@ $('.addGaleryPhoto').on('change', function (event) {
 const addPhoto = async function (event) {
     const formData = new FormData();
     const file = event.target.files[0];
+    console.log(file.size)
+    if (file.size > 1024000) {
+        $('.validTitle').css('display', 'block')
+        $('.validTitle').append('<p class="articleTitleError">la taille de la photo ne doit pas dépasser 1024Ko.</p>')
+        setTimeout(function () {
+            $('.validTitle').fadeOut().empty()
+        }, 5000);
+    } else {
     formData.set('file', file);
     formData.set('photoTitle', $('.photoTitle').val());
     formData.set('photoText', $('.photoTitle').val());
@@ -426,6 +468,8 @@ const addPhoto = async function (event) {
             let responseData = await response.json()
             $('.photo').css('display', 'none')
             $('.addAny').css('display', 'block')
+            $('.photoTitle').empty()
+            $('.addGaleryPhoto').val('')
             const getBlogContent = async function (data) {
                 try {
                     let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/articles/' + $('#articleId').val(), {
@@ -446,12 +490,13 @@ const addPhoto = async function (event) {
                             var nbParaPhoto = 0
                         }
                         var nbrePhoto = nbPara + nbParaPhoto
-                        if (nbrePhoto < 3) {
+                        var potoTest = 0
+                        if (nbrePhoto < 3 && potoTest == 0) {
                             $('.photoNumber').css('display', 'block')
                             $('.photoNumber').append('Votre article comporte ' + nbrePhoto + (nbrePhoto > 1 ? ' photos' : ' photo') + ', ajoutez en ' + (3 - nbrePhoto) + ' de plus pour pouvoir ajouter une galerie de photos.')
                         }
                         $('.articleTitle').append(responseArticle.contentTitle)
-                        if (nbrePhoto >= 3) {
+                        if (nbrePhoto == 3) {
                             $('.photoNumber').css('display', 'none')
                             $('.galeryValidation').css('display', 'block')
                             $('.galeryBtn').append('<button type="button" data-id="' + responseArticle.id + '" class="btn btn-outline-danger btn-sm carouselOn">Non</button>')
@@ -470,6 +515,7 @@ const addPhoto = async function (event) {
     } catch (e) {
         console.log(e)
     }
+}
 }
 
 // Activer / desactiver le caroussel
@@ -598,39 +644,6 @@ $(document).on('click', '.oeil', function (event) {
         id: $(this).attr('data-id')
     })
 })
-
-//Gérer l'affichage du demi paragraphe quand il y en a dèjà un
-
-$(document).change(function (event) {
-    event.preventDefault();
-    var articleId = $('#articleId').val()
-    const getThisArticless = async function (data) {
-        try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/articles/' + articleId, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + localStorage.getItem('token')
-                }
-            })
-            if (response.ok) {
-                let responseDataa = await response.json()
-                if (responseDataa.paragraph_photos.length != 0){
-                    $('.addOneSemiPara').css('display', 'none')
-                }
-            } else {
-                console.error('Retour : ', response.status)
-            }
-        } catch (e) {
-            console.log(e)
-        }
-    }
-    getThisArticless({
-        id: $('#articleId').val()
-    })
-})
-
-
 // retour au menu de choix d'ajout
 $(document).on('click', '.return', function (event) {
     event.preventDefault();

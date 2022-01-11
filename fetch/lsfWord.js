@@ -187,7 +187,7 @@ $(document).on('click', '.deleteThisVideo', function (event) {
                             })
                             if (response.ok) {
                                 let deleteVideo = await response.json()
-                                console.log(deleteVideo)
+                                window.location.reload();
 
                             } else {
                                 console.error('Retour : ', response.status)

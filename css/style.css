@@ -173,9 +173,10 @@ div.topNavigation {
 }
 
 .icon {
-    padding: 1.5px;
+    padding: 5px;
     border-radius: 2px;
     border: 1px solid red;
+    margin-right: 5px;
 }
 
 .iconA {
@@ -184,7 +185,7 @@ div.topNavigation {
 }
 
 .iconA:hover {
-    color: red;
+    color: darkred;
 }
 
 .btn.logout {
@@ -432,9 +433,10 @@ a.menu_item.admin {
     color: red;
 }
 
-.offlineVideosText {
+.offlineVideosText, .offlineArticleText {
     color: red;
     margin-top: 1vh;
+    font-size: 1rem;
 }
 
 .articleName {
@@ -715,6 +717,7 @@ span.inscrit, div.inscrit {
 
 .garbage {
     color: red;
+    cursor: pointer;
 }
 
 .form-label {

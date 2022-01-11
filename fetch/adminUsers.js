@@ -401,13 +401,11 @@ $(document).on('click', '.createUserValidation', function (event) {
                                 let responseData = await response.json()
                                 console.log(responseData)
                                 $('.creationMessage').append('<p>Un nouvel utilisateur a bien été créé.</p>')
-                                // setTimeout(function () {
-                                //     window.location.reload(1);
-                                // }, 1000);
+                                 setTimeout(function () {
+                                     window.location.reload(1);
+                                 }, 1000);
                                 var mail = responseData.user.mail
                                 var key = responseData.user.validationKey
-                                console.log(mail)
-                                console.log(key)
                                 const sendUserMail = async function (data) {
                                     try {
                                         let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/sendmail', {

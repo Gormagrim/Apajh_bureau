@@ -233,12 +233,12 @@ $(document).on('click', '.modif', function (event) {
                     }
                     $('.articleModalModif').append(myArticleModif)
                     if (responseThisArticle.carousel == '1') {
+                        $('.addNewPhotosToArticle').append('<div><p class="mod">Les photos de votre galerie :</p><div class="photos"></div><div class="newPhotos"><div class="text-center"><button class="btn btn-primary addNewPhoto mt-2">Ajouter une nouvelle photo</button><br /><span class="addNewPhotoSpan">Ajouter le titre de la photo</span><br /><input type="text" class="form-control addPhotoTitleCarousel" /><br /><input type="file" class="form-control addPhotoFileCarousel addOnePhotoToCarousel" /><input class="hiddenArticleId" type="hidden" /></div></div></div>')
                         for (var car in responseThisArticle.photo) {
                             var otherImgModif = '<div class="photosModif"><img src="https://www.api.apajh.jeseb.fr/public' + responseThisArticle.photo[car].photoLink + '" class="d-block w-100" alt="' + responseThisArticle.photo[car].photoText + '" title="' + responseThisArticle.photo[car].photoTitle + '"><button class="btn btn-danger btn-sm deleteCarouselPhoto" type="button" data-id="' + responseThisArticle.photo[car].id + '">Supprimer</button><hr /></div>'
                             $('.photos').append(otherImgModif)
                         }
                         $('.hiddenArticleId').attr('value', responseThisArticle.id)
-
                     }
                 }
                 // intégration de ckeditor
