@@ -61,6 +61,7 @@ $(document).on('click', '.isOffline', function (event) {
             })
             if (response.ok) {
                 let responseContentOnline = await response.json()
+                window.location.reload();
             } else {
                 console.error('Retour : ', response.status)
             }
@@ -92,7 +93,7 @@ $(document).on('click', '.isOnline', function (event) {
             })
             if (response.ok) {
                 let responseContentOnline = await response.json()
-
+                window.location.reload();
             } else {
                 console.error('Retour : ', response.status)
             }

@@ -37,6 +37,20 @@ body {
     z-index: 1000;
 }
 
+.fixedBottom {
+    margin-top: -6vh;
+}
+
+.firstImg {
+    height: 10vh;
+    width: auto;
+}
+
+a {
+    text-decoration: none;
+    color: goldenrod
+}
+
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     margin-top: 2rem;
 }
@@ -63,8 +77,17 @@ body {
     height: 99.9vh;
 }
 
+.firstTitle {
+    color: #5970B1;
+    font-weight: bold;
+}
+
+.for {
+    color: #f49f5cff;
+}
+
 .connection {
-    margin-top: 40vh;
+    margin-top: 30vh;
     background-color: #f49f5cff;
     height: 29vh;
     border: 1px solid #f49f5cff;
@@ -103,6 +126,41 @@ body {
     background-color: #84a0ec;
     border: 1px solid #84a0ec;
     color: #fff;
+}
+
+/* MAIN */
+
+.titreAccueuil {
+    color: #5970B1;
+    margin-top: 5vh;
+}
+
+div.popup {
+    margin-top: 5vh;
+}
+
+.myvideos, .myVideosPercent, .myArticles, .myArticlesPercent, .totalVideos, .totalArticles, .infosUsers, .infosProUsers {
+    color: #5970B1;
+}
+
+.onlineNumber, .offlineNumber, .percent, .great {
+    font-weight: bold;
+    color: goldenrod;
+}
+
+h5.infosTitle {
+    margin-top: 15vh;
+    margin-bottom: 2vh;
+    color: #f49f5cff;
+}
+
+.totalVideos, .infosUsers {
+    margin-bottom: 0;
+}
+
+.bold {
+    font-weight: bold;
+    color: #f49f5cff;
 }
 
 /* MENU */
@@ -286,6 +344,7 @@ a.ime {
 
 .articleTitle {
     font-weight: bold;
+    margin-top: 2vh;
 }
 
 .afterArticleTitle {
@@ -507,7 +566,7 @@ a.menu_item.admin {
 
 /* modal des articles */
 
-.modalPhoto{
+.modalPhoto {
     text-align: center;
 }
 
@@ -545,8 +604,12 @@ a.menu_item.admin {
     margin: 0;
 }
 
+textarea.messageArea {
+    min-height: 50px !important;
+}
+
 textarea {
-    min-height: 30vh !important;
+    min-height: 8vh !important;
 }
 
 p.mod {
@@ -572,6 +635,7 @@ p.mod {
     color: crimson;
     margin-top: 1vh;
 }
+
 .italic {
     font-style: italic;
 }
@@ -596,7 +660,7 @@ input.photoModification, input.photoModificationText, span.photoModification {
 
 
 
-.firstStepArticle {
+.firstStepArticle, .firstStepQuizz {
     margin-top: 10vh;
 }
 
@@ -745,4 +809,160 @@ span.inscrit, div.inscrit {
 :root {
     --ck-z-default: 100;
     --ck-z-modal: calc(var(--ck-z-default) + 9999) !important;
+}
+
+#cities {
+    visibility: hidden;
+}
+
+.validButton {
+    display: none;
+}
+
+.modalInfo {
+    color: #5970B1;
+}
+
+.validInfo {
+    color: red;
+}
+
+/* Quizz */
+
+.questions, .secondStep, .reponses, .newQuizzComment {
+    display: none;
+}
+
+.isGood {
+    color: #5970B1
+}
+
+.photoQuizzFile, .photosButton, .photoQuizzFile {
+    display: none;
+}
+
+/* Messages */
+
+.contacts, .messages {
+    background-color: #5970B1;
+    color: #fff
+}
+
+.contacts {
+    border-right: 2px solid #fff;
+}
+
+.zoneMessage {
+    height: 60vh;
+    overflow-y: scroll;
+    border-left: 2px solid #5970B1;
+}
+
+.comWith {
+    height: 60vh;
+}
+
+.userList {
+    overflow-y: scroll;
+}
+
+.messageFromUser {
+    max-width: 50vh;
+    max-height: 50vh;
+    float: left;
+    font-size: 16px;
+    resize: vertical;
+    text-align: justify;
+    background-color: rgb(73, 116, 73);
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.messageToUser {
+    float: right;
+    font-size: 16px;
+    text-align: justify;
+    background-color: rgb(30, 110, 215);
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+.datetimeToUser {
+    float: right !important;
+    font-size: 10px;
+}
+
+.datetimeFromUser {
+    float: left;
+    font-size: 10px;
+}
+
+.focus {
+    float: right;
+    border: 1px solid #5970B1;
+    border-radius: 5px;
+    background-color: #5970B1;
+    color: #fff !important;
+    margin-top: 5px;
+}
+
+.messageFrom {
+color: #5970B1;
+border-bottom: 2px solid #5970B1;
+cursor: pointer;
+}
+
+.messageFrom.focus {
+    margin-bottom: 15px;
+}
+
+.sendMessage {
+    display: none;
+}
+
+.fa-plus-circle {
+    color: #5970B1;
+    background-color: #fff;
+    margin-left: 50px;
+}
+
+.newContact {
+    color: #5970B1;
+    cursor: pointer;
+}
+
+.mediaMessage img, .messageVideo {
+    height: 200px;
+    width: auto;
+}
+
+.fa-comment-dots {
+    color: #f49f5cff;
+}
+
+.noRead {
+    color: #f49f5cff;
+}
+
+/* devoirs */
+
+.devoirTitle, .devoirBody, .fa-book {
+    color: #5970B1;
+    
+}
+
+div.devoir {
+    border: 1px solid #5970B1;
+    padding-bottom: 20px;
+}
+
+.devoirDateFor {
+    color: #f49f5cff;
+}
+
+.missTitle, .missText, .missDate {
+    color: red;
 }

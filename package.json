@@ -1,13 +1,13 @@
 {
   "name": "apajh_station",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Application de bureau Apajh",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
   "win": {
-    "icon": "./img/flower.ico"
+    "icon": "img/flower.ico"
   },
   "author": "Sébastien Larrivée",
   "devDependencies": {

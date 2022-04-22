@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.api.apajh.jeseb.fr/public/v1/" />
+    <meta http-equiv="X-Content-Security-Policy"
+        content="script-src 'self' https://www.api.apajh.jeseb.fr/public/v1/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous" />
+    <title>Apajh Station</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="nav"></div>
+            <div class="col-11 content text-center">
+                <div class="row">
+                    <div class="col-12 mainTitle text-center">
+                        Création d'un quizz
+                    </div>
+                </div>
+                <div class="row firstStepQuizz">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="offset-2 col-8">
+                                <span>Titre de votre Quizz</span>
+                                <input class="form-control newQuizzContent mt-2" type="text"
+                                    placeholder="Entrer ici le nom de votre Quizz" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="offset-2 col-8 mt-2">
+                                <button class="btn btn-secondary addQuizzContent">Valider</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="offset-2 col-8">
+                                <input id="quizzId" type="hidden" value="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 secondStep">
+                        Vous allez maintenant ajouter les questions et les réponses de votre Quizz.
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-2 col-8 questions">
+                        <input class="form-control newQuizzQuestion mt-2" type="text"
+                            placeholder="Entrer ici votre question" />
+                        <div><button class="btn btn-secondary addQuizzQuestion mt-4">Valider</button></div>
+                    </div>
+                </div>
+                <div class="allQuestions mt-2 mb-0"></div>
+                <div class="allAnswers"></div>
+                <div class="row">
+                    <div class="offset-2 col-8 reponses">
+                        <input class="form-control newQuizzReponse mt-2" type="text"
+                            placeholder="Entrer ici votre réponse" />
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Est-ce la bonne réponse
+                                ?</label>
+                        </div>
+                        <input class="form-control newQuizzComment mt-2" type="text"
+                            placeholder="Ajouter ici un commentaire qui s'affichera quand le joueur aura répondu à la question" />
+                        <button class="btn btn-secondary addQuizzReponse mt-4" data-value="0">Valider</button>
+                        <div class="otherQuestion">
+                            <button class="btn btn-secondary addQuizzOtherQuestion mt-4" data-value="0">Ajouter une autre question</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="row">
+                    <div class="col-12 validTitle fixed-bottom mb-4"></div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <!-- Début modal-->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Mon quizz</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="quizzContent"></div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center fixedBottom">
+            <p class="fixedBottom">@APAJH Station v1.0.0 - 2021-2022 - Application développée par <a
+                    href="https://www.izylify.fr">Sébastien LARRIVEE</a></p>
+        </div>
+    </div>
+    <!-- You can also require other files to run in this process -->
+    <script language="JavaScript" type="text/javascript" src="../js/jquery-3.6.6.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../fetch/infos.js"></script>
+    <script src="../fetch/newQuizz.js"></script>
+    <script src="../fetch/general.js"></script>
+    <script src="../js/ckeditor5-build-classic/ckeditor.js"></script>
+
+    <script src="../renderer.js"></script>
+
+</body>
+
+</html>

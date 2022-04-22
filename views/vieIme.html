@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.api.apajh.jeseb.fr/public/v1/" />
+    <meta http-equiv="X-Content-Security-Policy"
+        content="script-src 'self' https://www.api.apajh.jeseb.fr/public/v1/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous" />
+    <title>Apajh Station</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="nav"></div>
+            <div class="col-11 content text-center">
+                <div class="row">
+                    <div class="col-12 text-center mt-2">
+                        <h3>Cette page servira de "réglement", expliquant la vie à l'IME</h3>
+                        <p>Voir la page <i data-id="856" class="fas fa-eye voir"></i></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-2 col-8 addAnyy mt-4">
+                        <span>Vous voulez ajouter :</span><br />
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="addAnyItem addOnePara">Un paragraphe</div>
+                            </div>
+                            <div class="offset-4 col-4">
+                                <div class="addAnyItem addOnePhoto">Une photo</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-2 col-8 paragraf mt-2">
+                        <span class="mt-2">Ajouter un titre à votre paragraphe (Facultatif)</span><br />
+                        <input type="text" class="form-control paragraphTitle">
+                        <span>Ajouter le contenu de votre devoir (Obligatoire)</span><br />
+                        <textarea class="form-control firstArticleText" cols="80" rows="10"></textarea>
+                        <button class="btn btn-secondary addParagraph mt-2">Valider</button>
+                        <button class="btn btn-primary return mt-2">Annuler</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-2 col-8 mt-2 photo">
+                        <p class="galeryTitle">Ajouter les photos une à une.</p>
+                        <span>Ajouter un titre à la photo de votre galerie (Obligatoire)</span><br />
+                        <input class="form-control photoTitle mt-1" type="text"><br />
+                        <span>Ajouter la photo de votre galerie</span><br />
+                        <input class="form-control addGaleryPhoto mt-1" type="file">
+                        <button class="btn btn-primary return mt-2">Annuler</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="text-center">
+            <p class="fixedBottom">@APAJH Station v1.0.0 - 2021-2022 - Application développée par <a
+                    href="https://www.izylify.fr">Sébastien LARRIVEE</a></p>
+        </div>
+    </div>
+    <!-- You can also require other files to run in this process -->
+    <script language="JavaScript" type="text/javascript" src="../js/jquery-3.6.6.js"></script>
+    <script src="../fetch/infos.js"></script>
+    <script src="../fetch/general.js"></script>
+    <script src="../fetch/vieIme.js"></script>
+    <script src="../renderer.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/ckeditor5-build-classic/ckeditor.js"></script>
+</body>
+
+</html>

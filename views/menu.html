@@ -9,7 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous" />
     <title>Apajh Station</title>
 </head>
 
@@ -18,6 +19,86 @@
         <div class="row">
             <div class="nav"></div>
         </div>
+        <div class="col-11 content text-center">
+            <div class="row">
+                <div class="col-12 text-center titreAccueuil">
+                    <h1>Bienvenue sur l'APAJH Station v1.0.0</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>Cette application va te permettre d'alimenter en articles et en vidéos le site</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 text-center infos">
+                    <h5 class="infosTitle">Le savais-tu ?</h5>
+                    <p class="totalVideos"></p>
+                    <p class="totalArticles"></p>
+                </div>
+                <div class="col-4 text-center logo">
+                    <img src="../img/num_et_rik.png" alt="logo Num & Rik">
+                </div>
+                <div class="col-4 text-center infos">
+                    <h5 class="infosTitle">Plus d'infos...</h5>
+                    <p class="infosUsers"></p>
+                    <p class="infosProUsers"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 popup">
+                    <div>
+                        <h2>Mes Vidéos :</h2>
+                        <div class="myVideos"></div>
+                        <div class="myVideosPercent"></div>
+                    </div>
+                    <div>
+                        <h2>Mes articles :</h2>
+                        <div class="myArticles"></div>
+                        <div class="myArticlesPercent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Début modal-->
+    <div class="modal fade" id="myInformationModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title text-center">Les informations personnelles de votre profil n'ont pas étés saisis</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h4 class="text-center modalInfo">Il est nécessaire de saisir ces informations pour l'affichage des articles et des vidéos sur le site.</h4>
+                    <div class="informationModal row">
+                        <div class="col-6">
+                            <label for="firstname" class="col-sm-2 col-form-label">Prénom</label>
+                            <input type="text" class="form-control" id="firstname">
+                        </div>
+                        <div class="col-6">
+                            <label for="lastname" class="col-sm-2 col-form-label">Nom</label>
+                            <input type="text" class="form-control" id="lastname">
+                        </div>
+                        <div class="col-6">
+                            <label for="job" class="col-sm-2 col-form-label">Métier</label>
+                            <input type="text" class="form-control" id="job">
+                        </div>
+                        <div class="col-6">
+                            <label for="postalCode" class="col-form-label">Entrer votre code postale et choisissez votre ville</label>
+                            <input type="text" class="form-control" id="postalCode">
+                            <select id="cities" class="cities" name="city" value=""></select>
+                            <input type="hidden" class="id_city">
+                        </div>
+                    </div>
+                    <div class="validInfo text-center"></div>
+                    <div class="validButton text-center"><button class="btn btn-secondary mt-4 addUserInformations">Valider</button></div>
+                </div>
+                <div class="modal-footer text-center">
+                </div>
+            </div>
+        </div>
     </div>
     <!-- You can also require other files to run in this process -->
     <script language="JavaScript" type="text/javascript" src="../js/jquery-3.6.6.js"></script>
@@ -25,7 +106,6 @@
     <script src="../fetch/general.js"></script>
     <script src="../renderer.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-    <script src="../fetch/infos.js"></script>
 </body>
 
 </html>

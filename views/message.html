@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.api.apajh.jeseb.fr/public/v1/" />
+    <meta http-equiv="X-Content-Security-Policy"
+        content="script-src 'self' https://www.api.apajh.jeseb.fr/public/v1/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous" />
+    <title>Apajh Station</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="nav"></div>
+            <div class="col-11 content">
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="row mt-4 topMessage">
+                            <div class="offset-1 col-4 contacts">
+                                Contacts
+                            </div>
+                            <div class="col-7 messages">
+                                Messages
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="offset-1 col-4 userList">
+                            </div>
+                            <div class="col-7 zoneMessage" id="zoneMessage">
+                                <div class="row comWith" id="comWith"></div>
+                            </div>
+                            <div class="text-center">
+                                <span class="succesMessage"></span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-12 text-center">
+                        <div class="row mt-4">
+                            <div class="offset-1 col-3">
+
+                            </div>
+                            <div class="col-8 sendMessage">
+                                <input type="file" id="mediaFile">
+                                <div class="form-floating">
+                                    <textarea class="form-control messageArea" placeholder="Ecris ton message ici !"
+                                        id="floatingTextarea"></textarea>
+                                    <label for="floatingTextarea">Tapez votre message</label>
+                                </div>
+                                <button type="button" data-sendTo=""
+                                    class="btn btn-secondary btn-sm sendButton">Envoyer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span class="newContact" data-bs-toggle="modal" data-bs-target="#newMessageModal"><i
+                            class="fas fa-plus-circle fa-3x"></i> Nouveau contact</span>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <p class="fixedBottom">@APAJH Station v1.0.0 - 2021-2022 - Application développée par <a
+                    href="https://www.izylify.fr">Sébastien LARRIVEE</a></p>
+        </div>
+    </div>
+    <!--Modal d'envoi de message à un nouvel utilisateur-->
+    <div class="modal fade" id="newMessageModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Envoi d'un nouveau message</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <select class="userForMessage">
+                        <option value="">--A qui voulez-vous envoyer un message ?--</option>
+                    </select>
+                    <div class="mt-4 mb-4">
+                        Message :
+                    </div>
+                    <textarea class="form-control newMessageArea" placeholder="Ecris ton message ici !"
+                        id="floatingTextarea"></textarea>
+                    <div class="text-center mt-4">
+                        <button type="button" data-sendTo=""
+                            class="btn btn-secondary btn-sm newSendButton">Envoyer</button>
+                    </div>
+                    <div class="newSuccesMessage"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- You can also require other files to run in this process -->
+    <script language="JavaScript" type="text/javascript" src="../js/jquery-3.6.6.js"></script>
+    <script src="../fetch/infos.js"></script>
+    <script src="../fetch/general.js"></script>
+    <script src="../fetch/message.js"></script>
+    <script src="../renderer.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+
+</html>

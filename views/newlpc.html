@@ -27,64 +27,24 @@
                                 <h2>Avant de créer un contenu, assurez vous qu'il n'existe pas déjà !</h2>
                             </div>
                         </div>
-                        <div class="voirCat">
-                            <div class="row">
-                                <div class="col-12 text-center mt-2">
-                                    <p>Ci-dessous la liste des catégories existante</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="catItem col-12 text-center">
-                                    <select class="getCat" name="Category">
-                                        <option value="">--Catégories existantes--</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 text-center mt-2">
-                                <button class="btn btn-secondary seeVoirCat">Voir les catégories existantes</button>
-                            </div>
-                        </div>
-                        <div class="creatCat">
-                            <div class="row">
-                                <div class="col-12 text-center mt-2">
-                                    <p>Si le contenu que vous voulez créer n'appartient à aucune de ses catégories, il
-                                        faut créer la catégorie.</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="offset-2 col-8 text-center">
-                                    <input class="form-control newCat" type="text"
-                                        placeholder="Entrer ici le nom de la nouvelle catégorie" />
-                                    <button class="btn btn-secondary addCat">Valider la catégorie</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 text-center mt-2">
-                                <button class="btn btn-secondary seeCreatCat">créer une catégorie</button>
-                            </div>
-                        </div>
                         <div class="row mt-4">
                             <div class="col-12 text-center state">
                                 <p>Les étapes de la création d'un contenu vidéo :</p>
-                                <p>1) Créer une vidéo LSF</p>
+                                <p>1) Créer une vidéo LPC</p>
                                 <p>2) Ajouter une vidéo</p>
-                                <p>3) Selectionner une catégorie de vidéo (La créer avant si elle n'existe pas)</p>
                             </div>
                         </div>
                         <div class="creatContent">
                             <div class="row">
                                 <div class="col-12 text-center mt-4 mb-4">
-                                    <h2>Créer une vidéo LSf</h2>
+                                    <h2>Créer une vidéo LPC</h2>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="offset-2 col-8 text-center">
                                     <input class="form-control newVideoContent" type="text"
-                                        placeholder="Entrer ici le mot de la vidéo" />
-                                    <input class="form-control newVideoContentType mt-4" type="hidden" value="2" />
+                                        placeholder="Entrer ici le titre de la vidéo" />
+                                    <input class="form-control newVideoContentType mt-4" type="hidden" value="5" />
                                     <button class="btn btn-secondary addVideoContent mt-4" data-bs-toggle="modal"
                                         data-bs-target="#newVideoModal">Valider</button>
                                 </div>
@@ -92,7 +52,7 @@
                         </div>
                         <div class="row">
                             <div class="col-12 text-center mt-2">
-                                <button class="btn btn-secondary seeCreatContent">Créer une vidéo LSF</button>
+                                <button class="btn btn-secondary seeCreatContent">Créer une vidéo LPC</button>
                             </div>
                         </div>
                         <div class="row">
@@ -131,7 +91,7 @@
                                         </div>
                                     </div>
                                     <div class="videoTitle mb-4"></div>
-                                    <label for="">Fichier vidéo (20 Mo maximum)</label>
+                                    <label for="">Fichier vidéo (Il faut qu'il soit le plus petit possible)</label>
                                     <div class="row">
                                         <div class="offset-3 col-6">
                                             <input class="form-control file mt-2 mb-4" type="file" />
@@ -139,13 +99,6 @@
                                     </div>
                                     <input class="hiddenFile" type="hidden">
                                     <input class="form-control id_content" type="hidden" value="" />
-                                    <label for="">Choisissez la catégorie de la vidéo</label>
-                                    <div class="catItem col-12 text-center mt-2">
-                                        <select class="getCategory" name="Category">
-                                            <option value="">--Choix de la catégories--</option>
-                                        </select>
-                                        <input class="catId" type="hidden" value="" />
-                                    </div>
                                     <button class="btn btn-secondary addVideoToVideoContent mt-4">Valider</button>
                                 </div>
                             </div>
@@ -165,7 +118,7 @@
     <script language="JavaScript" type="text/javascript" src="../js/jquery-3.6.6.js"></script>
     <script src="../fetch/infos.js"></script>
     <script src="../fetch/general.js"></script>
-    <script src="../fetch/lsf.js"></script>
+    <script src="../fetch/lpc.js"></script>
     <script src="../renderer.js"></script>
     <script src="../js/bootstrap.min.js"></script>
 </body>

@@ -9,6 +9,7 @@ function createWindow () {
     height: 800,
     minWidth: 1200,
     minHeight: 800,
+    icon: './img/flower.ico',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
@@ -16,7 +17,8 @@ function createWindow () {
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
-
+  // Supprime le menu pour la publication
+  // mainWindow.setMenu(null)
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 

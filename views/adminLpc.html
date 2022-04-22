@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.api.apajh.jeseb.fr/public/v1/" />
+    <meta http-equiv="X-Content-Security-Policy"
+        content="script-src 'self' https://www.api.apajh.jeseb.fr/public/v1/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous" />
+    <title>Apajh Station</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="nav"></div>
+            <div class="col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11 content text-center">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+                        <div class="row mb-4 mt-2">
+                            <div class="col-12 text-center wordTitle">
+                                <h1>Gestion des Vidéos</h1>
+                            </div>
+                        </div>
+                        <div class="row mb-4 videoLisit fixed-top">
+                            <div class="col-3 text-center mot">
+                                <span>Mot de la vidéo</span>
+                            </div>
+                            <div class="col-3 text-center date">
+                                <span>Date de création</span>
+                            </div>
+                            <div class="col-3 text-center status">
+                                <span>Status</span>
+                            </div>
+                            <div class="col-3 text-center">
+                                <span>Voir</span>
+                            </div>
+                        </div>
+                        <div class="listWord">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="videoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Vidéo LSF</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <div class="videoTitle text-center"></div>
+                        <div class="videoBody text-center"></div>
+                        <button class="btn btn-danger btn-sm deleteVideo" data-bs-toggle="modal" data-bs-target="#deleteModal" type="button">Supprimer</button>
+                    </div>
+                    <div class="modal-footer text-center">
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Vidéo LSF</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p>Êtes-vous certain de vouloir supprimer cette vidéo ?</p>
+                        <button class="btn btn-danger btn-sm deleteThisVideo" data-vl="" data-videoId="" data-contentId="" data-online="" type="button">Oui</button>
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Non</button>
+                    </div>
+                    <div class="errorMessage text-center"></div>
+                    <div class="modal-footer text-center">
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- You can also require other files to run in this process -->
+    <script language="JavaScript" type="text/javascript" src="../js/jquery-3.6.6.js"></script>
+    <script src="../fetch/infos.js"></script>
+    <script src="../fetch/general.js"></script>
+    <script src="../fetch/adminLpc.js"></script>
+    <script src="../renderer.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+
+</html>
