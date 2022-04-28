@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-12 text-center mt-2">
                         <h3>Cette page servira de "réglement", expliquant la vie à l'IME</h3>
-                        <p>Voir la page <i data-id="856" class="fas fa-eye voir"></i></p>
+                        <p>Voir la page <i class="fas fa-eye fa-2x voir" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></p>
                     </div>
                 </div>
                 <div class="row">
@@ -63,8 +63,40 @@
 
             </div>
         </div>
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Mon article</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="articleModal"></div>
+                        <div class="allPara"></div>
+                        <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="text-center">
-            <p class="fixedBottom">@APAJH Station v1.0.0 - 2021-2022 - Application développée par <a
+            <p class="fixedBottom">@APAJH Station v1.1.0 - 2021-2022 - Application développée par <a
                     href="https://www.izylify.fr">Sébastien LARRIVEE</a></p>
         </div>
     </div>

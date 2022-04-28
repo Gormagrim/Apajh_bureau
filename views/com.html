@@ -21,31 +21,36 @@
             <div class="nav"></div>
             <div class="col-11 content text-center">
                 <div class="row">
-                    <div class="col-12 text-center">
-                        <div class="row">
-                            <div
-                                class="offset-col-2 col-3 offset-sm-2 col-sm-3 offset-md-2 col-md-3 offset-lg-2 col-lg-3 offset-xl-2 col-xl-3 text-center">
-                                <a class="ime" href="./infos.html">
-                                    <div class="menuTopContent">
-                                        Infos diffusés
-                                    </div>
-                                </a>
-                            </div>
-                            <div
-                                class="offset-col-2 col-3 offset-sm-2 col-sm-3 offset-md-2 col-md-3 offset-lg-2 col-lg-3 offset-xl-2 col-xl-3 text-center">
-                                <a class="ime" href="./newInfo.html">
-                                    <div class="menuTopContent">
-                                        Ajouter une info
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                    <div class="col-12 text-center mt-2">
+                        <h3>Communication générale</h3>
+                        <p>Vous pouvez générer un message qui s'affichera en haut de toutes les pages du site lorsque l'utilisateur "famille" est connecté.</p>
+                        <p>Voir le message actuellement diffusé, ou le modifier / Supprimer :</p><br />
+                        <i class="fas fa-eye fa-2x voir" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Info générale actuellement diffusée :</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="actualInfo"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="text-center">
-            <p class="fixedBottom">@APAJH Station v1.0.0 - 2021-2022 - Application développée par <a
+            <p class="fixedBottom">@APAJH Station v1.1.0 - 2021-2022 - Application développée par <a
                     href="https://www.izylify.fr">Sébastien LARRIVEE</a></p>
         </div>
     </div>
@@ -53,9 +58,10 @@
     <script language="JavaScript" type="text/javascript" src="../js/jquery-3.6.6.js"></script>
     <script src="../fetch/infos.js"></script>
     <script src="../fetch/general.js"></script>
-    
+    <script src="../fetch/com.js"></script>
     <script src="../renderer.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/ckeditor5-build-classic/ckeditor.js"></script>
 </body>
 
 </html>

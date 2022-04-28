@@ -40,12 +40,30 @@ $(document).ready(function () {
                 }
                 let difference = smallDifference.filter(x => !secondDuplicates.includes(x));
                 console.log(difference)
-                for (var resp in finalResponseData) {
-                    if (finalResponseData[resp].toUser == localStorage.getItem('id') && finalResponseData[resp].isRead == 0) {
-                        var toto = '<i class="fas fa-comment-dots"></i>'
-                        $('span.totoMess').append(toto)
+                const viewConversation = async function (data) {
+                    try {
+                        let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/countnomess', {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': 'Bearer ' + localStorage.getItem('token')
+                            }
+                        })
+                        if (response.ok) {
+                            let responseData = await response.json()
+                            console.log(responseData)
+                            if (difference.fromUser != localStorage.getItem('id') && responseData > 0) {
+                                var toto = '<i class="fas fa-comment-dots"></i>'
+                                $('span.totoMess').append(toto)
+                            }
+                        } else {
+                            console.error('Retour : ', response.status)
+                        }
+                    } catch (e) {
+                        console.log(e)
                     }
                 }
+                viewConversation()
                 for (var resp in difference) {
                     if (difference[resp].toUser == localStorage.getItem('id')) {
                         var lastMessage = difference[resp].isRead
@@ -64,14 +82,11 @@ $(document).ready(function () {
     }
     viewConversation()
 })
-$(document).ready(function () {
-   
-})
 
 $(document).on('click', '.messageFrom', function (event) {
     event.preventDefault();
     $('#zoneMessage').animate({
-        scrollTop: $(".succesMessage").offset().top
+        scrollTop: $(".succesMessage").offset().top + 2000
     }, 2000);
     $('.comWith').empty()
     $('.messageFrom').removeClass('focus')
@@ -114,16 +129,16 @@ $(document).on('click', '.messageFrom', function (event) {
                             var isRead = 'Ce message n\'a pas encore été lu.'
                         }
                         if (responseData[resp].mediaLink == null) {
-                            var message = '<div><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + '">' + responseData[resp].content + '<br /><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "datetimeToUser" : "datetimeFromUser") + ' mt-2">Reçu le ' + fullDate + ' à ' + messHour + ' <i title="' + isRead + '" class="far fa-eye ' + (lastMessage == 0 ? 'noRead' : '') + '"></i></span></span><br /></div>'
+                            var message = '<div><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + '">' + responseData[resp].content + '<br /><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "datetimeToUser" : "datetimeFromUser") + ' mt-2">' + (responseData[resp].toUser == localStorage.getItem('id') ? "Reçu" : "Envoyé") + ' le ' + fullDate + ' à ' + messHour + ' <i title="' + isRead + '" class="far fa-eye ' + (lastMessage == 0 ? 'noRead' : '') + '"></i></span></span><br /></div>'
                         } else {
                             var extension = responseData[resp].mediaLink.split('.').pop();
                             if (extension == 'png' || extension == 'jpg' || extension == 'jpeg' || extension == 'gif' || extension == 'svg') {
                                 var message = '<div><div class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + ' mediaMessage"><img src="https://www.api.apajh.jeseb.fr/public/' + responseData[resp].mediaLink + '" alt=""><br />' +
-                                    '<span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + '">' + responseData[resp].content + '<br /><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "datetimeToUser" : "datetimeFromUser") + ' mt-2">Reçu le ' + fullDate + ' à ' + messHour + ' <i title="' + isRead + '" class="far fa-eye ' + (lastMessage == 0 ? 'noRead' : '') + '"></i></span></span></div></div>'
+                                    '<span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + '">' + responseData[resp].content + '<br /><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "datetimeToUser" : "datetimeFromUser") + ' mt-2">' + (responseData[resp].toUser == localStorage.getItem('id') ? "Reçu" : "Envoyé") + ' le ' + fullDate + ' à ' + messHour + ' <i title="' + isRead + '" class="far fa-eye ' + (lastMessage == 0 ? 'noRead' : '') + '"></i></span></span></div></div>'
                             } else if (extension == 'mp4' || extension == 'avi' || extension == 'mov') {
                                 var message = '<div><div class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + ' mediaMessage">' +
                                     '<video class="messageVideo" contextmenu="return false;" oncontextmenu="return false;" controls><source src="https://www.api.apajh.jeseb.fr/public' + responseData[resp].mediaLink + '" type="video/mp4"></video><br />' +
-                                    '<span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + '">' + responseData[resp].content + '<br /><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "datetimeToUser" : "datetimeFromUser") + ' mt-2">Reçu le ' + fullDate + ' à ' + messHour + ' <i title="' + isRead + '" class="far fa-eye ' + (lastMessage == 0 ? 'noRead' : '') + '"></i></span></div></div>'
+                                    '<span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + '">' + responseData[resp].content + '<br /><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "datetimeToUser" : "datetimeFromUser") + ' mt-2">' + (responseData[resp].toUser == localStorage.getItem('id') ? "Reçu" : "Envoyé") + ' le ' + fullDate + ' à ' + messHour + ' <i title="' + isRead + '" class="far fa-eye ' + (lastMessage == 0 ? 'noRead' : '') + '"></i></span></div></div>'
                             }
                         }
                         $('.comWith').append(message)
@@ -159,9 +174,7 @@ $(document).on('click', '.messageFrom', function (event) {
             console.log(e)
         }
     }
-    viewMessage({
-
-    })
+    viewMessage()
 })
 
 $(function () {
@@ -174,7 +187,7 @@ $(function () {
 
     $(document).on('click', '.sendButton', function (event) {
         event.preventDefault();
-
+        var userId = $(this).attr('data-sendTo')
         if ($('#mediaFile').val() == '') {
             const sendMessage = async function (data) {
                 try {
@@ -190,9 +203,72 @@ $(function () {
                         let responseData = await response.json()
                         console.log(responseData)
                         $('.succesMessage').append('Votre message à bien été envoyé !')
-                        setTimeout(function () {
-                            window.location.reload(1);
-                        }, 1000);
+                        // setTimeout(function () {
+                        $('#zoneMessage').animate({
+                            scrollTop: $(".sendButton").offset().top + 2000
+                        }, 2000);
+                        $('.comWith').empty()
+                        $('.succesMessage').empty()
+
+                        console.log(userId)
+                        const viewMessage = async function (data) {
+                            try {
+                                let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/message/' + userId, {
+                                    method: 'GET',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'Authorization': 'Bearer ' + localStorage.getItem('token')
+                                    }
+                                })
+                                if (response.ok) {
+                                    let responseData = await response.json()
+                                    console.log(responseData)
+                                    for (var resp in responseData) {
+                                        var date = new Date(responseData[resp].time)
+                                        var readDate = new Date(responseData[resp].isReadTime)
+                                        var options = { weekday: "short", year: "numeric", month: "long", day: "2-digit" };
+                                        var fullDate = date.toLocaleDateString("fr-FR", options)
+                                        var hour = date.getHours();
+                                        var minute = date.getMinutes();
+                                        var readHour = readDate.getHours();
+                                        var readMinute = readDate.getMinutes();
+                                        var messHour = hour + ':' + (minute < 10 ? ('0' + minute) : minute)
+                                        var fullReadDate = readDate.toLocaleDateString("fr-FR", options)
+                                        var messReadHour = readHour + ':' + (readMinute < 10 ? ('0' + readMinute) : readMinute)
+                                        if (responseData[resp].fromUser == localStorage.getItem('id') && responseData[resp].toUser == userId || responseData[resp].fromUser == userId && responseData[resp].toUser == localStorage.getItem('id')) {
+                                            var lastMessage = responseData[resp].isRead
+                                            if (lastMessage == 1) {
+                                                var isRead = 'Ce message a été lu le ' + fullReadDate + ' à ' + messReadHour
+                                            } else {
+                                                var isRead = 'Ce message n\'a pas encore été lu.'
+                                            }
+                                            if (responseData[resp].mediaLink == null) {
+                                                var message = '<div><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + '">' + responseData[resp].content + '<br /><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "datetimeToUser" : "datetimeFromUser") + ' mt-2">' + (responseData[resp].toUser == localStorage.getItem('id') ? "Reçu" : "Envoyé") + ' le ' + fullDate + ' à ' + messHour + ' <i title="' + isRead + '" class="far fa-eye ' + (lastMessage == 0 ? 'noRead' : '') + '"></i></span></span><br /></div>'
+                                            } else {
+                                                var extension = responseData[resp].mediaLink.split('.').pop();
+                                                if (extension == 'png' || extension == 'jpg' || extension == 'jpeg' || extension == 'gif' || extension == 'svg') {
+                                                    var message = '<div><div class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + ' mediaMessage"><img src="https://www.api.apajh.jeseb.fr/public/' + responseData[resp].mediaLink + '" alt=""><br />' +
+                                                        '<span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + '">' + responseData[resp].content + '<br /><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "datetimeToUser" : "datetimeFromUser") + ' mt-2">' + (responseData[resp].toUser == localStorage.getItem('id') ? "Reçu" : "Envoyé") + ' le ' + fullDate + ' à ' + messHour + ' <i title="' + isRead + '" class="far fa-eye ' + (lastMessage == 0 ? 'noRead' : '') + '"></i></span></span></div></div>'
+                                                } else if (extension == 'mp4' || extension == 'avi' || extension == 'mov') {
+                                                    var message = '<div><div class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + ' mediaMessage">' +
+                                                        '<video class="messageVideo" contextmenu="return false;" oncontextmenu="return false;" controls><source src="https://www.api.apajh.jeseb.fr/public' + responseData[resp].mediaLink + '" type="video/mp4"></video><br />' +
+                                                        '<span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + '">' + responseData[resp].content + '<br /><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "datetimeToUser" : "datetimeFromUser") + ' mt-2">' + (responseData[resp].toUser == localStorage.getItem('id') ? "Reçu" : "Envoyé") + ' le ' + fullDate + ' à ' + messHour + ' <i title="' + isRead + '" class="far fa-eye ' + (lastMessage == 0 ? 'noRead' : '') + '"></i></span></div></div>'
+                                                }
+                                            }
+                                            $('.comWith').append(message)
+                                        }
+
+                                    }
+                                    $('.messageArea').val('')
+                                } else {
+                                    console.error('Retour : ', response.status)
+                                }
+                            } catch (e) {
+                                console.log(e)
+                            }
+                        }
+                        viewMessage()
+                        //   }, 1000);
 
                     } else {
                         console.error('Retour : ', response.status)
@@ -223,9 +299,70 @@ $(function () {
                     if (response.ok) {
                         let responseData = await response.json()
                         $('.succesMessage').append('Votre message à bien été envoyé !')
-                        setTimeout(function () {
-                            window.location.reload(1);
-                        }, 1000);
+                        $('#zoneMessage').animate({
+                            scrollTop: $(".sendButton").offset().top + 2000
+                        }, 2000);
+                        $('.comWith').empty()
+                        $('.succesMessage').empty()
+
+                        console.log(userId)
+                        const viewMessage = async function (data) {
+                            try {
+                                let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/message/' + userId, {
+                                    method: 'GET',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'Authorization': 'Bearer ' + localStorage.getItem('token')
+                                    }
+                                })
+                                if (response.ok) {
+                                    let responseData = await response.json()
+                                    console.log(responseData)
+                                    for (var resp in responseData) {
+                                        var date = new Date(responseData[resp].time)
+                                        var readDate = new Date(responseData[resp].isReadTime)
+                                        var options = { weekday: "short", year: "numeric", month: "long", day: "2-digit" };
+                                        var fullDate = date.toLocaleDateString("fr-FR", options)
+                                        var hour = date.getHours();
+                                        var minute = date.getMinutes();
+                                        var readHour = readDate.getHours();
+                                        var readMinute = readDate.getMinutes();
+                                        var messHour = hour + ':' + (minute < 10 ? ('0' + minute) : minute)
+                                        var fullReadDate = readDate.toLocaleDateString("fr-FR", options)
+                                        var messReadHour = readHour + ':' + (readMinute < 10 ? ('0' + readMinute) : readMinute)
+                                        if (responseData[resp].fromUser == localStorage.getItem('id') && responseData[resp].toUser == userId || responseData[resp].fromUser == userId && responseData[resp].toUser == localStorage.getItem('id')) {
+                                            var lastMessage = responseData[resp].isRead
+                                            if (lastMessage == 1) {
+                                                var isRead = 'Ce message a été lu le ' + fullReadDate + ' à ' + messReadHour
+                                            } else {
+                                                var isRead = 'Ce message n\'a pas encore été lu.'
+                                            }
+                                            if (responseData[resp].mediaLink == null) {
+                                                var message = '<div><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + '">' + responseData[resp].content + '<br /><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "datetimeToUser" : "datetimeFromUser") + ' mt-2">Reçu le ' + fullDate + ' à ' + messHour + ' <i title="' + isRead + '" class="far fa-eye ' + (lastMessage == 0 ? 'noRead' : '') + '"></i></span></span><br /></div>'
+                                            } else {
+                                                var extension = responseData[resp].mediaLink.split('.').pop();
+                                                if (extension == 'png' || extension == 'jpg' || extension == 'jpeg' || extension == 'gif' || extension == 'svg') {
+                                                    var message = '<div><div class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + ' mediaMessage"><img src="https://www.api.apajh.jeseb.fr/public/' + responseData[resp].mediaLink + '" alt=""><br />' +
+                                                        '<span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + '">' + responseData[resp].content + '<br /><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "datetimeToUser" : "datetimeFromUser") + ' mt-2">Reçu le ' + fullDate + ' à ' + messHour + ' <i title="' + isRead + '" class="far fa-eye ' + (lastMessage == 0 ? 'noRead' : '') + '"></i></span></span></div></div>'
+                                                } else if (extension == 'mp4' || extension == 'avi' || extension == 'mov') {
+                                                    var message = '<div><div class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + ' mediaMessage">' +
+                                                        '<video class="messageVideo" contextmenu="return false;" oncontextmenu="return false;" controls><source src="https://www.api.apajh.jeseb.fr/public' + responseData[resp].mediaLink + '" type="video/mp4"></video><br />' +
+                                                        '<span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + '">' + responseData[resp].content + '<br /><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "datetimeToUser" : "datetimeFromUser") + ' mt-2">Reçu le ' + fullDate + ' à ' + messHour + ' <i title="' + isRead + '" class="far fa-eye ' + (lastMessage == 0 ? 'noRead' : '') + '"></i></span></div></div>'
+                                                }
+                                            }
+                                            $('.comWith').append(message)
+                                        }
+
+                                    }
+                                    $('.messageArea').val('')
+                                } else {
+                                    console.error('Retour : ', response.status)
+                                }
+                            } catch (e) {
+                                console.log(e)
+                            }
+                        }
+                        viewMessage()
                     } else {
                         console.error('Retour : ', response.status)
                     }

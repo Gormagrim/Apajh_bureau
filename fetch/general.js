@@ -240,7 +240,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     const viewConversation = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/messageUser', {
+            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/countnomess', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -249,18 +249,11 @@ $(document).ready(function () {
             })
             if (response.ok) {
                 let responseData = await response.json()
-                var classResponseData = responseData.sort(function (a, b) {
-                    return a.toUser - b.toUser;
-                });
-                var finalResponseData = classResponseData.sort(function (a, b) {
-                    return a.fromUser - b.toUser
-                })
-                for (var resp in finalResponseData) {
-                    if (finalResponseData[resp].toUser == localStorage.getItem('id') && finalResponseData[resp].isRead == 0) {
-                        $('.offlineVideos').append('<a class="iconA" href="../views/message.html"><i class="far fa-envelope fa-2x"></i></a>')
-                        
-                    }
+                console.log(responseData)
+                if (responseData > 0) {
+                    $('.offlineVideos').append('<a class="iconA" href="../views/message.html"><i class="far fa-envelope fa-2x" title="Vous avez ' + responseData + (responseData > 1 ? ' messages' : ' message') + ' à lire"></i></a>')
                 }
+
             } else {
                 console.error('Retour : ', response.status)
             }
@@ -268,6 +261,18 @@ $(document).ready(function () {
             console.log(e)
         }
     }
-    viewConversation({
-    })
+    viewConversation()
 })
+
+$("#show_hide_password a").on('click', function (event) {
+    event.preventDefault();
+    if ($('#show_hide_password input').attr("type") == "text") {
+        $('#show_hide_password input').attr('type', 'password');
+        $('#show_hide_password i').addClass("fa-eye-slash");
+        $('#show_hide_password i').removeClass("fa-eye");
+    } else if ($('#show_hide_password input').attr("type") == "password") {
+        $('#show_hide_password input').attr('type', 'text');
+        $('#show_hide_password i').removeClass("fa-eye-slash");
+        $('#show_hide_password i').addClass("fa-eye");
+    }
+});

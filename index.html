@@ -11,6 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="stylesheet" href="./css/bootstrap.min.css" />
   <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous" />
   <title>Apajh Station</title>
 </head>
 
@@ -31,14 +33,18 @@
                 <form action="">
                   <div
                     class="offset-col-1 col-10 offset-sm-1 col-sm-10 offset-md-1 col-md-10 offset-lg-1 col-lg-10 offset-xl-1 col-xl-10 text-center">
-                    <input class="form-control login text-center" type="email" id="mail" name="mail" autocomplete
+                    <input class="form-control login text-center" type="email" id="mail" name="mail" autocomplete="on"
                       placeholder="Adresse mail" />
                   </div>
-                  <div
-                    class="offset-col-1 col-10 offset-sm-1 col-sm-10 offset-md-1 col-md-10 offset-lg-1 col-lg-10 offset-xl-1 col-xl-10 text-center">
-                    <input class="form-control login text-center" type="password" id="password" name="password"
-                      placeholder="Mot de passe" />
+                  <div class="offset-1 col-10 form-group">
+                    <div class="input-group" id="show_hide_password">
+                      <input class="form-control login text-center" type="password" id="password" name="password"
+                        placeholder="Mot de passe" />
+                      <span class="input-group-text" id="basic-addon1"><a class="eye" href=""><i class="fa fa-eye-slash"
+                            aria-hidden="true"></i></a></span>
+                    </div>
                   </div>
+
                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                     <button type="button" class="btn btn-info" id="login">Valider</button>
                   </div>
@@ -50,12 +56,13 @@
       </div>
     </div>
     <div class="text-center">
-      <p class="fixedBottom">@APAJH Station v1.0.0 - 2021-2022 - Application développée par <a href="https://www.izylify.fr">Sébastien LARRIVEE</a></p>
+      <p class="fixedBottom">@APAJH Station v1.0.0 - 2021-2022 - Application développée par <a
+          href="https://www.izylify.fr">Sébastien LARRIVEE</a></p>
     </div>
   </div>
   <!-- You can also require other files to run in this process -->
   <script language="JavaScript" type="text/javascript" src="./js/jquery-3.6.6.js"></script>
-  <script src="../fetch/general.js"></script>
+  <script src="./fetch/general.js"></script>
   <script src="./renderer.js"></script>
   <script src="./fetch/login.js"></script>
 </body>
