@@ -12,7 +12,7 @@
   "author": "Sébastien Larrivée",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
-    "electron": "^11.1.1",
+    "electron": "^18.2.4",
     "@popperjs/core": "^2.9.3",
     "@progress/kendo-ui": "^2021.3.914",
     "bootstrap": "^5.1.0",
