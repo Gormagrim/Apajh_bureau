@@ -1,7 +1,7 @@
 $(document).ready(function() {
     const getWordList = async function(data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/lpcvideo', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/lpcvideo', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ $(document).on('click', '.isOffline', function (event) {
     $(this).html('Online')
     const ContentIsOnline = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/online', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/online', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ $(document).on('click', '.isOnline', function (event) {
     $(this).html('Offline')
     const ContentIsOffline = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/offline', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/offline', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -126,7 +126,7 @@ $(document).on('click', '.voir', function(event) {
     var videoId = $(this).attr('data-id')
     const getThisVideo = async function(data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/lpcvideo/' + videoId , {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/lpcvideo/' + videoId , {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -139,7 +139,7 @@ $(document).on('click', '.voir', function(event) {
                 console.log(responseGetThisVideos)
                 var thisVideoTitle = '<h3>' + responseGetThisVideos[0].contentTitle + '</h3>'
                 $('.videoTitle').append(thisVideoTitle)
-                var thisVideo = '<video id="ldsVideo" class="ldsVideo" contextmenu="return false;" oncontextmenu="return false;" controls><source src="https://www.api.apajh.jeseb.fr/public'+ responseGetThisVideos[0].long_video[0].videoLink + '" type="video/mp4"></video>'
+                var thisVideo = '<video id="ldsVideo" class="ldsVideo" contextmenu="return false;" oncontextmenu="return false;" controls><source src="https://www.api.apajh-num-et-rik.fr/public'+ responseGetThisVideos[0].long_video[0].videoLink + '" type="video/mp4"></video>'
                 $('.videoBody').append(thisVideo)
             } else {
                 console.error('Retour : ', response.status)
@@ -160,7 +160,7 @@ $(document).on('click', '.deleteThisVideo', function (event) {
     } else {
         const deleteThisArticleVideo = async function (data) {
             try {
-                let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/article', {
+                let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/article', {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',

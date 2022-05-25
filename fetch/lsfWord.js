@@ -1,7 +1,7 @@
 $(document).ready(function () {
     const getWordList = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/getVideos', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/getVideos', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ $(document).on('click', '.isOffline', function (event) {
     $(this).html('Online')
     const ContentIsOnline = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/online', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/online', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ $(document).on('click', '.isOnline', function (event) {
     $(this).html('Offline')
     const ContentIsOffline = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/offline', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/offline', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -127,7 +127,7 @@ $(document).on('click', '.voir', function (event) {
     var videoId = $(this).attr('data-id')
     const getThisVideo = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/videos/' + videoId, {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/videos/' + videoId, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -140,7 +140,7 @@ $(document).on('click', '.voir', function (event) {
                 console.log(responseGetThisVideos)
                 var thisVideoTitle = '<h3>' + responseGetThisVideos[0].contentTitle + '</h3>'
                 $('.videoTitle').append(thisVideoTitle)
-                var thisVideo = '<video id="ldsVideo" class="ldsVideo" contextmenu="return false;" oncontextmenu="return false;" controls muted autoplay loop><source src="https://www.api.apajh.jeseb.fr/public' + responseGetThisVideos[0].video[0].videoLink + '" type="video/mp4"></video>'
+                var thisVideo = '<video id="ldsVideo" class="ldsVideo" contextmenu="return false;" oncontextmenu="return false;" controls muted autoplay loop><source src="https://www.api.apajh-num-et-rik.fr/public' + responseGetThisVideos[0].video[0].videoLink + '" type="video/mp4"></video>'
                 $('.videoBody').append(thisVideo)
                 $('.deleteThisVideo').attr('data-videoId', responseGetThisVideos[0].video[0].id)
                 $('.deleteThisVideo').attr('data-vl', responseGetThisVideos[0].video[0].videoLink)
@@ -165,7 +165,7 @@ $(document).on('click', '.deleteThisVideo', function (event) {
     } else {
         const deleteThisVideo = async function (data) {
             try {
-                let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/video', {
+                let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/video', {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
@@ -177,7 +177,7 @@ $(document).on('click', '.deleteThisVideo', function (event) {
                     let deleteVideo = await response.json()
                     const deleteThisArticleVideo = async function (data) {
                         try {
-                            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/article', {
+                            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/article', {
                                 method: 'DELETE',
                                 headers: {
                                     'Content-Type': 'application/json',

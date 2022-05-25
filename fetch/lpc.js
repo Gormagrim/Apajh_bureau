@@ -40,7 +40,7 @@ $('.addVideoContent').on('click', function (event) {
     event.preventDefault();
     const addVideoContent = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/article', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/article', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ $(document).ready(function () {
         formData.set('file', file)
         formData.set('id_content', $('.id_content').val())
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/lpcvideo', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/lpcvideo', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',

@@ -4,7 +4,7 @@ $('.addBlogContent').on('click', function (event) {
     $('.mainPhoto').css('display', 'block')
     const addBlogContent = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/article', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/article', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ $('.addBlogContent').on('click', function (event) {
                 $('.firstStepArticle').css('display', 'none')
                 const getBlogContent = async function (data) {
                     try {
-                        let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/articles/' + responseData.Contenu.id, {
+                        let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/articles/' + responseData.Contenu.id, {
                             method: 'GET',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ const addMainPhoto = async function (event) {
     $('.mainPhoto').css('display', 'none')
     $('.validTitle').css('display', 'block')
     try {
-        let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/photo', {
+        let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/photo', {
             method: 'POST',
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -86,7 +86,7 @@ const addMainPhoto = async function (event) {
             let responseData = await response.json()
             const getBlogContent = async function (data) {
                 try {
-                    let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/articles/' + $('#articleId').val(), {
+                    let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/articles/' + $('#articleId').val(), {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ const addMainPhoto = async function (event) {
                     if (response.ok) {
                         let responseArticle = await response.json()
                         $('.firstArticle').css('display', 'block')
-                        $('.firstPhoto').attr('src', 'https://www.api.apajh.jeseb.fr/public/' + responseArticle.photo[0].photoLink)
+                        $('.firstPhoto').attr('src', 'https://www.api.apajh-num-et-rik.fr/public/' + responseArticle.photo[0].photoLink)
                         $('.firstPhoto').attr('alt', responseArticle.photo[0].photoTitle)
                         $('.firstPhotoTitle').append(responseArticle.photo[0].photoTitle)
                         $('.photoNumber').empty()
@@ -149,7 +149,7 @@ $('.addFirstArticle').on('click', function (event) {
     $('.validTitle').css('display', 'block')
     const addBlogContent = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/text', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/text', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -161,7 +161,7 @@ $('.addFirstArticle').on('click', function (event) {
                 let responseData = await response.json()
                 const getBlogContent = async function (data) {
                     try {
-                        let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/articles/' + $('#articleId').val(), {
+                        let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/articles/' + $('#articleId').val(), {
                             method: 'GET',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -209,7 +209,7 @@ $('.addParagraph').on('click', function (event) {
     event.preventDefault();
     const addBlogParagraph = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/text', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/text', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -223,7 +223,7 @@ $('.addParagraph').on('click', function (event) {
                 $('.addAny').css('display', 'block')
                 const getBlogParagraf = async function (data) {
                     try {
-                        let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/text/' + $('#articleId').val(), {
+                        let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/text/' + $('#articleId').val(), {
                             method: 'GET',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -268,7 +268,7 @@ $('.addParagrafPhotoPara').on('click', function (event) {
     event.preventDefault();
     const addBlogParagraph = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/text', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/text', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -284,7 +284,7 @@ $('.addParagrafPhotoPara').on('click', function (event) {
                 console.log(responseData.id)
                 const getBlogParagraf = async function (data) {
                     try {
-                        let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/text/' + $('#articleId').val(), {
+                        let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/text/' + $('#articleId').val(), {
                             method: 'GET',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -332,7 +332,7 @@ $(document).change(function (event) {
     console.log(articleId)
     const getThisArticless = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/articles/' + articleId, {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/articles/' + articleId, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -370,7 +370,7 @@ const addParagrafPhoto = async function (event) {
     formData.set('photoText', $('.paragrafPhotoTitle').val());
     formData.set('id_paragraph', $('.hiddenParaId').attr('data-id'))
     try {
-        let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/text-photo', {
+        let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/text-photo', {
             method: 'POST',
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -384,7 +384,7 @@ const addParagrafPhoto = async function (event) {
             $('.addAny').css('display', 'block')
             const getBlogContent = async function (data) {
                 try {
-                    let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/articles/' + $('#articleId').val(), {
+                    let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/articles/' + $('#articleId').val(), {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -415,7 +415,7 @@ const addParagrafPhoto = async function (event) {
                         var para = responseArticle.paragraph
                         for (var paraPhoto in responseArticle.paragraph_photos) {
                             if (paraPhoto != null && paraPhoto.id == para.id) {
-                                var semiPhoto = '<img class="semiPhoto" src="https://www.api.apajh.jeseb.fr/public/' + responseArticle.paragraph_photos[0].photoLink + '" alt="' + responseArticle.paragraph_photos[0].photoTitle + '">'
+                                var semiPhoto = '<img class="semiPhoto" src="https://www.api.apajh-num-et-rik.fr/public/' + responseArticle.paragraph_photos[0].photoLink + '" alt="' + responseArticle.paragraph_photos[0].photoTitle + '">'
                                 var foto = '.idOrPhoto' + $('.paragrafPhotoId').val()
                                 $(foto).append(semiPhoto)
                             }
@@ -457,7 +457,7 @@ const addPhoto = async function (event) {
     formData.set('photoText', $('.photoTitle').val());
     formData.set('id_content', $('#articleId').val())
     try {
-        let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/photo', {
+        let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/photo', {
             method: 'POST',
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -472,7 +472,7 @@ const addPhoto = async function (event) {
             $('.addGaleryPhoto').val('')
             const getBlogContent = async function (data) {
                 try {
-                    let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/articles/' + $('#articleId').val(), {
+                    let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/articles/' + $('#articleId').val(), {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -529,7 +529,7 @@ $(document).on('click', '.carouselOff', function (event) {
     $(this).html('Non')
     const addCarousel = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/carouselOff', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/carouselOff', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -560,7 +560,7 @@ $(document).on('click', '.carouselOn', function (event) {
     $(this).html('Oui')
     const removeCarousel = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/carouselOn', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/carouselOn', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -592,7 +592,7 @@ $(document).on('click', '.oeil', function (event) {
     var articleId = $(this).attr('data-id')
     const getAllArticles = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/articles/' + articleId, {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/articles/' + articleId, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -602,7 +602,7 @@ $(document).on('click', '.oeil', function (event) {
             if (response.ok) {
                 let responseData = await response.json()
                 var myArticle = '<div class="col-12 text-center"><p>' + responseData.contentTitle + '</p></div><div class="col-12 modalPhoto mb-3"><img class="img-fluid"' +
-                    'src="https://www.api.apajh.jeseb.fr/public' + responseData.photo[0].photoLink + '" alt="' + responseData.photo[0].photoText + '"><br /><span class="">' + responseData.photo[0].photoText + '</span></div>'
+                    'src="https://www.api.apajh-num-et-rik.fr/public' + responseData.photo[0].photoLink + '" alt="' + responseData.photo[0].photoText + '"><br /><span class="">' + responseData.photo[0].photoText + '</span></div>'
                 for (var para in responseData.paragraph) {
                     if (responseData.paragraph[para].title != null) {
                         var title = '<div class="title"><p>' + responseData.paragraph[para].title + '</p></div>'
@@ -615,7 +615,7 @@ $(document).on('click', '.oeil', function (event) {
                         var allPara = '<div class="col-12 onePara">' + responseData.paragraph[para].text + '</div>'
                         if (responseData.paragraph_photos != null) {
                             if (responseData.paragraph_photos[paraphoto].id_paragraph == responseData.paragraph[para].id) {
-                                var allPara = '<div class="row"><div class="col-6 semiPara"><img class="img-fluid photoP" src="https://www.api.apajh.jeseb.fr/public' + responseData.paragraph_photos[paraphoto].photoLink + '" alt="' + responseData.paragraph_photos[paraphoto].photoText + '"></div><div class="col-6 semiPara semi">' + responseData.paragraph[para].text + '</div></div>'
+                                var allPara = '<div class="row"><div class="col-6 semiPara"><img class="img-fluid photoP" src="https://www.api.apajh-num-et-rik.fr/public' + responseData.paragraph_photos[paraphoto].photoLink + '" alt="' + responseData.paragraph_photos[paraphoto].photoText + '"></div><div class="col-6 semiPara semi">' + responseData.paragraph[para].text + '</div></div>'
                             } else {
                                 var allPara = '<div class="col-12 onePara">' + responseData.paragraph[para].text + '</div>'
                             }
@@ -626,9 +626,9 @@ $(document).on('click', '.oeil', function (event) {
                 $('.articleModal').append(myArticle)
                 if (responseData.carousel == '1') {
                     $('.carousel').css('display', 'block')
-                    var firstImg = '<div class="carousel-item active"><img src="https://www.api.apajh.jeseb.fr/public' + responseData.photo[0].photoLink + '" class="d-block w-100" alt="' + responseData.photo[0].photoText + '" title="' + responseData.photo[0].photoTitle + '"></div>'
+                    var firstImg = '<div class="carousel-item active"><img src="https://www.api.apajh-num-et-rik.fr/public' + responseData.photo[0].photoLink + '" class="d-block w-100" alt="' + responseData.photo[0].photoText + '" title="' + responseData.photo[0].photoTitle + '"></div>'
                     for (var car in responseData.photo) {
-                        var otherImg = '<div class="carousel-item"><img src="https://www.api.apajh.jeseb.fr/public' + responseData.photo[car].photoLink + '" class="d-block w-100" alt="' + responseData.photo[car].photoText + '" title="' + responseData.photo[car].photoTitle + '"></div>'
+                        var otherImg = '<div class="carousel-item"><img src="https://www.api.apajh-num-et-rik.fr/public' + responseData.photo[car].photoLink + '" class="d-block w-100" alt="' + responseData.photo[car].photoText + '" title="' + responseData.photo[car].photoTitle + '"></div>'
                         $('.carousel-inner').append(otherImg)
                     }
                     $('.carousel-inner').append(firstImg)

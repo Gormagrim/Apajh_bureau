@@ -1,7 +1,7 @@
 $(document).ready(function () {
     const getDevoirList = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/devoirs', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/devoirs', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ $(document).on('click', '.voir', function (event) {
     $('.deleteThisDevoir').attr('data-id_content', devoirId_content)
     const getThisDevoir = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/thisdevoirs/' + devoirId_content, {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/thisdevoirs/' + devoirId_content, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ $(document).on('click', '.deleteThisDevoir', function (event) {
     var devoirId_content = $(this).attr('data-id_content')
     const deleteThisDevoir = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/devoirs', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/devoirs', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ $(document).on('click', '.deleteThisDevoir', function (event) {
                 let deleteVideo = await response.json()
                 const deleteThisArticleDevoir = async function (data) {
                     try {
-                        let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/article', {
+                        let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/article', {
                             method: 'DELETE',
                             headers: {
                                 'Content-Type': 'application/json',

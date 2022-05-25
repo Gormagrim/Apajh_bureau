@@ -39,7 +39,7 @@ $('.addVideoContent').on('click', function () {
 $(document).ready(function () {
     const getCategory = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/videos', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/videos', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -65,7 +65,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     const getCategory = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/videos', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/videos', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -91,7 +91,7 @@ $('.addCat').on('click', function (event) {
     event.preventDefault();
     const addCategory = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/addCategory', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/addCategory', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -126,7 +126,7 @@ $('.addVideoContent').on('click', function (event) {
     event.preventDefault();
     const addVideoContent = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/article', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/article', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -174,7 +174,7 @@ $(document).ready(function () {
         formData.set('id_content', $('.id_content').val())
         formData.set('id_category', $('.catId').val())
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/video', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/video', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',

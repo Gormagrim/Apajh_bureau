@@ -1,7 +1,7 @@
 $(document).ready(function () {
     const getMyArticles = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/myArticle', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/myArticle', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ $(document).on('click', '.oeil', function (event) {
     var articleId = $(this).attr('data-id')
     const getAllArticles = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/articles/' + articleId, {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/articles/' + articleId, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ $(document).on('click', '.oeil', function (event) {
             if (response.ok) {
                 let responseData = await response.json()
                 var myArticle = '<div class="col-12 text-center"><p>' + responseData.contentTitle + '</p></div><div class="col-12 modalPhoto mb-3"><img class="img-fluid"' +
-                    'src="https://www.api.apajh.jeseb.fr/public' + responseData.photo[0].photoLink + '" alt="' + responseData.photo[0].photoText + '"><br /><span class="">' + responseData.photo[0].photoText + '</span></div>'
+                    'src="https://www.api.apajh-num-et-rik.fr/public' + responseData.photo[0].photoLink + '" alt="' + responseData.photo[0].photoText + '"><br /><span class="">' + responseData.photo[0].photoText + '</span></div>'
                 for (var para in responseData.paragraph) {
                     if (responseData.paragraph[para].title != null) {
                         var title = '<div class="title"><p>' + responseData.paragraph[para].title + '</p></div>'
@@ -87,7 +87,7 @@ $(document).on('click', '.oeil', function (event) {
                         var allPara = '<div class="col-12 onePara">' + responseData.paragraph[para].text + '</div>'
                         if (responseData.paragraph_photos != null) {
                             if (responseData.paragraph_photos[paraphoto].id_paragraph == responseData.paragraph[para].id) {
-                                var allPara = '<div class="row"><div class="col-6 semiPara"><img class="img-fluid photoP" src="https://www.api.apajh.jeseb.fr/public' + responseData.paragraph_photos[paraphoto].photoLink + '" alt="' + responseData.paragraph_photos[paraphoto].photoText + '"></div><div class="col-6 semiPara semi">' + responseData.paragraph[para].text + '</div></div>'
+                                var allPara = '<div class="row"><div class="col-6 semiPara"><img class="img-fluid photoP" src="https://www.api.apajh-num-et-rik.fr/public' + responseData.paragraph_photos[paraphoto].photoLink + '" alt="' + responseData.paragraph_photos[paraphoto].photoText + '"></div><div class="col-6 semiPara semi">' + responseData.paragraph[para].text + '</div></div>'
                             } else {
                                 var allPara = '<div class="col-12 onePara">' + responseData.paragraph[para].text + '</div>'
                             }
@@ -98,9 +98,9 @@ $(document).on('click', '.oeil', function (event) {
                 $('.articleModal').append(myArticle)
                 if (responseData.carousel == '1') {
                     $('.carousel').css('display', 'block')
-                    var firstImg = '<div class="carousel-item active"><img src="https://www.api.apajh.jeseb.fr/public' + responseData.photo[0].photoLink + '" class="d-block w-100" alt="' + responseData.photo[0].photoText + '" title="' + responseData.photo[0].photoTitle + '"></div>'
+                    var firstImg = '<div class="carousel-item active"><img src="https://www.api.apajh-num-et-rik.fr/public' + responseData.photo[0].photoLink + '" class="d-block w-100" alt="' + responseData.photo[0].photoText + '" title="' + responseData.photo[0].photoTitle + '"></div>'
                     for (var car in responseData.photo) {
-                        var otherImg = '<div class="carousel-item"><img src="https://www.api.apajh.jeseb.fr/public' + responseData.photo[car].photoLink + '" class="d-block w-100" alt="' + responseData.photo[car].photoText + '" title="' + responseData.photo[car].photoTitle + '"></div>'
+                        var otherImg = '<div class="carousel-item"><img src="https://www.api.apajh-num-et-rik.fr/public' + responseData.photo[car].photoLink + '" class="d-block w-100" alt="' + responseData.photo[car].photoText + '" title="' + responseData.photo[car].photoTitle + '"></div>'
                         $('.carousel-inner').append(otherImg)
                     }
                     $('.carousel-inner').append(firstImg)
@@ -124,7 +124,7 @@ $(document).on('click', '.modif', function (event) {
     var articleId = $(this).attr('data-id')
     const getThisArticles = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/articles/' + articleId, {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/articles/' + articleId, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -140,7 +140,7 @@ $(document).on('click', '.modif', function (event) {
                     var myArticleModif = '<div class="col-12 text-center"><p class="mod">Titre de l\'article</p><input class="form-control mainTitle" type="text" value="' +
                         responseThisArticle.contentTitle + '" /></div><div class="text-center"><button class="btn btn-primary btn-sm modifValid mainTitleValid mt-2" data-id="' +
                         responseThisArticle.id + '" type="button">Valider la modification</button></div><div class="mainTitleValidation text-center"></div><div class="col-12 modalPhoto mb-3"><img class="img-fluid"' +
-                        'src="https://www.api.apajh.jeseb.fr/public' + responseThisArticle.photo[0].photoLink + '" alt="' + responseThisArticle.photo[0].photoText +
+                        'src="https://www.api.apajh-num-et-rik.fr/public' + responseThisArticle.photo[0].photoLink + '" alt="' + responseThisArticle.photo[0].photoText +
                         '"><br /><p class="mod">Titre de la photo</p><input class="form-control" type="text" value="' + responseThisArticle.photo[0].photoText +
                         '" /></div><div class="text-center"><button class="btn btn-primary btn-sm modifValid" data-id="' + responseThisArticle.photo[0].id +
                         '" type="button">Valider la modification</button></div><div class="validationOk"></div>'
@@ -164,7 +164,7 @@ $(document).on('click', '.modif', function (event) {
                                 '" type="button">Valider la modification</button></div><div class="paraTextValidation text-center"></div>'
                             if (responseThisArticle.paragraph_photos != null) {
                                 if (responseThisArticle.paragraph_photos[paraphoto].id_paragraph == responseThisArticle.paragraph[para].id) {
-                                    var allParaModif = '<div class="row"><div class="col-6 semiPara"><img class="img-fluid photoP" src="https://www.api.apajh.jeseb.fr/public' +
+                                    var allParaModif = '<div class="row"><div class="col-6 semiPara"><img class="img-fluid photoP" src="https://www.api.apajh-num-et-rik.fr/public' +
                                         responseThisArticle.paragraph_photos[paraphoto].photoLink + '" alt="' +
                                         responseThisArticle.paragraph_photos[paraphoto].photoText + '"><button class="btn btn-primary btn-sm photoModif mt-1">Modifier la photo</button><br /><span class="photoModification mt-4">Ajouter le titre de votre nouvelle photo</span><br /><input class="form-control photoModificationText" type="text" /><input class="form-control photoModification semiParaPhotoModif mt-1" data-paragraph="' + responseThisArticle.paragraph_photos[paraphoto].id_paragraph + '" data-photoName="' + responseThisArticle.paragraph_photos[paraphoto].fileName + '" data-id="' + responseThisArticle.paragraph_photos[paraphoto].id + '" type="file" /></div><div class="col-6 semiPara semi"><p class="mod">demi-paragraphe :</p>' + textareaModif +
                                         '<button class="btn btn-primary btn-sm paraSemiTextModifValid mt-1" data-id="' + responseThisArticle.paragraph[para].id +
@@ -186,7 +186,7 @@ $(document).on('click', '.modif', function (event) {
                     if (responseThisArticle.carousel == '1') {
                         var photoCarousel = responseThisArticle.photo.shift()
                         for (var car in responseThisArticle.photo) {
-                            var otherImgModif = '<div class="photosModif"><img src="https://www.api.apajh.jeseb.fr/public' + responseThisArticle.photo[car].photoLink + '" class="d-block w-100" alt="' + responseThisArticle.photo[car].photoText + '" title="' + responseThisArticle.photo[car].photoTitle + '"><button class="btn btn-danger btn-sm deleteCarouselPhoto" type="button" data-id="' + responseThisArticle.photo[car].id + '">Supprimer</button><hr /></div>'
+                            var otherImgModif = '<div class="photosModif"><img src="https://www.api.apajh-num-et-rik.fr/public' + responseThisArticle.photo[car].photoLink + '" class="d-block w-100" alt="' + responseThisArticle.photo[car].photoText + '" title="' + responseThisArticle.photo[car].photoTitle + '"><button class="btn btn-danger btn-sm deleteCarouselPhoto" type="button" data-id="' + responseThisArticle.photo[car].id + '">Supprimer</button><hr /></div>'
                             $('.photos').append(otherImgModif)
                         }
                         $('.hiddenArticleId').attr('value', responseThisArticle.id)
@@ -231,7 +231,7 @@ $(document).on('click', '.mainTitleValid', function (event) {
     var articleIdd = $(this).attr('data-id')
     async function modifTitle(data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/article/' + articleIdd, {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/article/' + articleIdd, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -268,7 +268,7 @@ $(document).on('click', '.paraTitleModifValid', function (event) {
     $('.paraTitleValidation').css('display', 'block')
     async function modifTitle(data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/text', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/text', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -307,7 +307,7 @@ $(document).on('click', '.paraTextModifValid', function (event) {
     $('.paraTextValidation').css('display', 'block')
     async function modifTitle(data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/text', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/text', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -347,7 +347,7 @@ $(document).on('click', '.paraSemiTextModifValid', function (event) {
     $('.paraSemiTextValidation').css('display', 'block')
     async function modifTitle(data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/text', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/text', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -406,7 +406,7 @@ $(document).on('change', '.photoModification', function (event) {
     event.preventDefault();
     const deleteParaPhotoPhoto = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/text-photo', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/text-photo', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -423,7 +423,7 @@ $(document).on('change', '.photoModification', function (event) {
                 formData.set('photoText', $('.photoModificationText').val());
                 formData.set('id_paragraph', $('.photoModification.semiParaPhotoModif').attr('data-paragraph'))
                 try {
-                    let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/text-photo', {
+                    let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/text-photo', {
                         method: 'POST',
                         headers: {
                             'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -455,7 +455,7 @@ $(document).on('click', '.deleteCarouselPhoto', function (event) {
     event.preventDefault();
     const deleteCarouselPhoto = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/photo', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/photo', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -504,7 +504,7 @@ const addOnePhoto = async function (event) {
     formData.set('photoText', $('.addPhotoTitleCarousel').val());
     formData.set('id_content', $('.hiddenArticleId').val())
     try {
-        let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/photo', {
+        let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/photo', {
             method: 'POST',
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -527,7 +527,7 @@ $(document).on('click', '.deleteArticle', function (event) {
     var articleId = $(this).attr('data-id')
     const getThisArticles = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/articles/' + articleId, {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/articles/' + articleId, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -553,7 +553,7 @@ $(document).on('click', '.deleteArticleValidation', function (event) {
     event.preventDefault();
     const deleteThisArticles = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/article', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/article', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

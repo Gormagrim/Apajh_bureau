@@ -3,7 +3,7 @@ $('.addQuizzContent').on('click', function (event) {
     event.preventDefault();
     const addQuizzContent = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/article', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/article', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -20,7 +20,7 @@ $('.addQuizzContent').on('click', function (event) {
 
                 const getQuizzContent = async function (data) {
                     try {
-                        let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/quizz/' + responseData.Contenu.id, {
+                        let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/quizz/' + responseData.Contenu.id, {
                             method: 'GET',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ $('.addQuizzQuestion').on('click', function (event) {
     event.preventDefault();
     const addQuizzContent = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/question', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/question', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -116,7 +116,7 @@ $('.addQuizzReponse').on('click', function (event) {
     event.preventDefault();
     const addQuizzContent = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/answer', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/answer', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -135,7 +135,7 @@ $('.addQuizzReponse').on('click', function (event) {
                 $('.allAnswers').append('<p class="answ ' + (responseData.user.isGood == 1 ? "isGood" : "") + '" data-id="' + responseData.user.id + '">Votre réponse : "' + responseData.user.answer + '"</p>')
                 const getQuizzContent = async function (data) {
                     try {
-                        let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/quizz/' + $('#quizzId').val(), {
+                        let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/quizz/' + $('#quizzId').val(), {
                             method: 'GET',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -194,7 +194,7 @@ $(document).on('click', '.oeil', function (event) {
     $('.quizzContent').empty()
     const getQuizzContent = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/quizz/' + $('#quizzId').val(), {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/quizz/' + $('#quizzId').val(), {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

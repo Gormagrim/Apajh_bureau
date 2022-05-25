@@ -1,7 +1,7 @@
 $(document).ready(function () {
     const getUsers = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/users', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/users', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ $(document).on('click', '.userView', function (event) {
     var userId = $(this).attr('data-id')
     const userInfo = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/users/' + userId, {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/users/' + userId, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ $(document).on('click', '.userView', function (event) {
                 console.log(responseData)
                 $('.trashUser').attr('data-id', responseData[0].id);
                 $('.modal-title').text(responseData[0].user_description == null ? responseData[0].mail : responseData[0].user_description.firstname + ' ' + responseData[0].user_description.lastname)
-                var userPhoto = responseData[0].user_photo == null ? '../img/avatar.png' : 'https://www.api.apajh.jeseb.fr/public' + responseData[0].user_photo.photoLink
+                var userPhoto = responseData[0].user_photo == null ? '../img/avatar.png' : 'https://www.api.apajh-num-et-rik.fr/public' + responseData[0].user_photo.photoLink
                 var userPhotoAlt = responseData[0].user_description == null ? 'Photo de profil de ' + responseData[0].mail : responseData[0].user_description.firstname + ' ' + responseData[0].user_description.lastname
                 $('.userPhoto').append('<img class="myPhoto" src="' + userPhoto + '" alt="Photo de profil de ' +
                     userPhotoAlt + '">')
@@ -162,7 +162,7 @@ $(document).on('click', '.groupValidation', function (event) {
     } else {
         const usergroupModif = async function (data) {
             try {
-                let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/usergroup', {
+                let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/usergroup', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -201,7 +201,7 @@ $(document).on('click', '.desactivAccount', function (event) {
     event.preventDefault();
     const userAccountActivate = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/desactivate', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/desactivate', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -233,7 +233,7 @@ $(document).on('click', '.activAccount', function (event) {
     event.preventDefault();
     const userAccountDesactivate = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/activate', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/activate', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -266,7 +266,7 @@ $(document).on('click', '.sendMail', function (event) {
     event.preventDefault();
     const sendMail = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/sendmail', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/sendmail', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -299,7 +299,7 @@ $(document).on('click', '.trashUser', function (event) {
     event.preventDefault();
     const trashUser = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/user', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/user', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -389,7 +389,7 @@ $(document).on('click', '.createUserValidation', function (event) {
                 if (password.length >= 8 && password == passwordVerif && mail.match(mailTest)) {
                     const addUser = async function (data) {
                         try {
-                            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/register', {
+                            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/register', {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json',
@@ -408,7 +408,7 @@ $(document).on('click', '.createUserValidation', function (event) {
                                 var key = responseData.user.validationKey
                                 const sendUserMail = async function (data) {
                                     try {
-                                        let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/sendmail', {
+                                        let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/sendmail', {
                                             method: 'POST',
                                             headers: {
                                                 'Content-Type': 'application/json',

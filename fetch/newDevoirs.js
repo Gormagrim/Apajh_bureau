@@ -3,7 +3,7 @@ $('.addBlogContent').on('click', function (event) {
     event.preventDefault();
     const addBlogContent = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/article', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/article', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ $('.addBlogContent').on('click', function (event) {
                 $('.firstArticle').css('display', 'block')
                 const getBlogContent = async function (data) {
                     try {
-                        let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/articles/' + responseData.Contenu.id, {
+                        let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/articles/' + responseData.Contenu.id, {
                             method: 'GET',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ $('.addFirstArticle').on('click', function (event) {
     event.preventDefault();
         const addBlogContent = async function (data) {
             try {
-                let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/devoirs', {
+                let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/devoirs', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

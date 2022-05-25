@@ -6,7 +6,7 @@ $('#login').on('click', function (event) {
     console.log(password)
     const login = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/login', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -2,7 +2,7 @@
 $(document).ready(function () {
     const userInfo = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/user', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/user', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ $('#postalCode').on('keyup', function (event) {
     $('#cities').css('visibility', 'visible')
     const addCity = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/city', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/city', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ $('.addUserInformations').on('click', function (event) {
     event.preventDefault();
     const addInformations = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/user', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

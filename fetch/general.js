@@ -20,7 +20,7 @@ $('.nav').load('./navigation.html')
 $(document).ready(function () {
     const offlineNumber = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/countOfflineVideos', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/countOfflineVideos', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     const offlineNumber = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/countOfflineArticle', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/countOfflineArticle', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     const countMyVidéos = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/countMyVideos', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/countMyVideos', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -104,7 +104,7 @@ $(document).ready(function () {
                     '</span> ' + (responseMyVideos.online <= 1 ? 'vidéo ' : 'vidéos ') + 'LSF et ' + (responseMyVideos.offline == 0 ? 'tu n\'as ' : 'tu as ') + '<span class="' + (responseMyVideos.offline == 0 ? '' : 'offlineNumber') + '">' + (responseMyVideos.offline == 0 ? 'aucune' : responseMyVideos.offline) + '</span> ' + (responseMyVideos.offline <= 1 ? 'vidéo' : 'vidéos') + ' à faire contôler.</span>')
                 const countVideos = async function (data) {
                     try {
-                        let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/countVideos', {
+                        let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/countVideos', {
                             method: 'GET',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -142,7 +142,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     const countArticles = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/countMyArticle', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/countMyArticle', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -156,7 +156,7 @@ $(document).ready(function () {
                     '</span> ' + (responseMyArticles.online <= 1 ? 'article ' : 'articles ') + ' du blog et ' + (responseMyArticles.offline == 0 ? 'tu n\'as ' : 'tu as ') + '<span class="' + (responseMyArticles.offline == 0 ? '' : 'offlineNumber') + '">' + (responseMyArticles.offline == 0 ? 'aucun' : responseMyArticles.offline) + '</span> ' + (responseMyArticles.offline <= 1 ? 'article' : 'articles') + ' à faire contôler.</span>')
                 const countArticles = async function (data) {
                     try {
-                        let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/countOnlineArticle', {
+                        let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/countOnlineArticle', {
                             method: 'GET',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -194,7 +194,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     const countUsers = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/countuser', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/countuser', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -217,7 +217,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     const countProUsers = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/countprouser', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/countprouser', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -240,7 +240,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     const viewConversation = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/countnomess', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/countnomess', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

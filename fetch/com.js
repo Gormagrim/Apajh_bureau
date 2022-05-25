@@ -7,7 +7,7 @@ $(document).on('click', '.voir', function (event) {
     var articleId = $(this).attr('data-id')
     const getAllArticles = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/articles/860', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/articles/860', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ $(document).on('click', '.paraTextModifValid', function (event) {
     $('.paraTextValidation').css('display', 'block')
     async function modifTitle(data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/text', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/text', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

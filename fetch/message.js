@@ -1,7 +1,7 @@
 $(document).ready(function () {
     const viewConversation = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/messageUser', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/messageUser', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ $(document).ready(function () {
                 console.log(difference)
                 const viewConversation = async function (data) {
                     try {
-                        let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/countnomess', {
+                        let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/countnomess', {
                             method: 'GET',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -99,7 +99,7 @@ $(document).on('click', '.messageFrom', function (event) {
 
     const viewMessage = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/message/' + userId, {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/message/' + userId, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -133,11 +133,11 @@ $(document).on('click', '.messageFrom', function (event) {
                         } else {
                             var extension = responseData[resp].mediaLink.split('.').pop();
                             if (extension == 'png' || extension == 'jpg' || extension == 'jpeg' || extension == 'gif' || extension == 'svg') {
-                                var message = '<div><div class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + ' mediaMessage"><img src="https://www.api.apajh.jeseb.fr/public/' + responseData[resp].mediaLink + '" alt=""><br />' +
+                                var message = '<div><div class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + ' mediaMessage"><img src="https://www.api.apajh-num-et-rik.fr/public/' + responseData[resp].mediaLink + '" alt=""><br />' +
                                     '<span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + '">' + responseData[resp].content + '<br /><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "datetimeToUser" : "datetimeFromUser") + ' mt-2">' + (responseData[resp].toUser == localStorage.getItem('id') ? "Reçu" : "Envoyé") + ' le ' + fullDate + ' à ' + messHour + ' <i title="' + isRead + '" class="far fa-eye ' + (lastMessage == 0 ? 'noRead' : '') + '"></i></span></span></div></div>'
                             } else if (extension == 'mp4' || extension == 'avi' || extension == 'mov') {
                                 var message = '<div><div class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + ' mediaMessage">' +
-                                    '<video class="messageVideo" contextmenu="return false;" oncontextmenu="return false;" controls><source src="https://www.api.apajh.jeseb.fr/public' + responseData[resp].mediaLink + '" type="video/mp4"></video><br />' +
+                                    '<video class="messageVideo" contextmenu="return false;" oncontextmenu="return false;" controls><source src="https://www.api.apajh-num-et-rik.fr/public' + responseData[resp].mediaLink + '" type="video/mp4"></video><br />' +
                                     '<span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + '">' + responseData[resp].content + '<br /><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "datetimeToUser" : "datetimeFromUser") + ' mt-2">' + (responseData[resp].toUser == localStorage.getItem('id') ? "Reçu" : "Envoyé") + ' le ' + fullDate + ' à ' + messHour + ' <i title="' + isRead + '" class="far fa-eye ' + (lastMessage == 0 ? 'noRead' : '') + '"></i></span></div></div>'
                             }
                         }
@@ -147,7 +147,7 @@ $(document).on('click', '.messageFrom', function (event) {
                 }
                 const messageIsRead = async function (data) {
                     try {
-                        let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/isRead/' + userId, {
+                        let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/isRead/' + userId, {
                             method: 'PUT',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -191,7 +191,7 @@ $(function () {
         if ($('#mediaFile').val() == '') {
             const sendMessage = async function (data) {
                 try {
-                    let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/message', {
+                    let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/message', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -213,7 +213,7 @@ $(function () {
                         console.log(userId)
                         const viewMessage = async function (data) {
                             try {
-                                let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/message/' + userId, {
+                                let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/message/' + userId, {
                                     method: 'GET',
                                     headers: {
                                         'Content-Type': 'application/json',
@@ -247,11 +247,11 @@ $(function () {
                                             } else {
                                                 var extension = responseData[resp].mediaLink.split('.').pop();
                                                 if (extension == 'png' || extension == 'jpg' || extension == 'jpeg' || extension == 'gif' || extension == 'svg') {
-                                                    var message = '<div><div class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + ' mediaMessage"><img src="https://www.api.apajh.jeseb.fr/public/' + responseData[resp].mediaLink + '" alt=""><br />' +
+                                                    var message = '<div><div class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + ' mediaMessage"><img src="https://www.api.apajh-num-et-rik.fr/public/' + responseData[resp].mediaLink + '" alt=""><br />' +
                                                         '<span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + '">' + responseData[resp].content + '<br /><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "datetimeToUser" : "datetimeFromUser") + ' mt-2">' + (responseData[resp].toUser == localStorage.getItem('id') ? "Reçu" : "Envoyé") + ' le ' + fullDate + ' à ' + messHour + ' <i title="' + isRead + '" class="far fa-eye ' + (lastMessage == 0 ? 'noRead' : '') + '"></i></span></span></div></div>'
                                                 } else if (extension == 'mp4' || extension == 'avi' || extension == 'mov') {
                                                     var message = '<div><div class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + ' mediaMessage">' +
-                                                        '<video class="messageVideo" contextmenu="return false;" oncontextmenu="return false;" controls><source src="https://www.api.apajh.jeseb.fr/public' + responseData[resp].mediaLink + '" type="video/mp4"></video><br />' +
+                                                        '<video class="messageVideo" contextmenu="return false;" oncontextmenu="return false;" controls><source src="https://www.api.apajh-num-et-rik.fr/public' + responseData[resp].mediaLink + '" type="video/mp4"></video><br />' +
                                                         '<span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + '">' + responseData[resp].content + '<br /><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "datetimeToUser" : "datetimeFromUser") + ' mt-2">' + (responseData[resp].toUser == localStorage.getItem('id') ? "Reçu" : "Envoyé") + ' le ' + fullDate + ' à ' + messHour + ' <i title="' + isRead + '" class="far fa-eye ' + (lastMessage == 0 ? 'noRead' : '') + '"></i></span></div></div>'
                                                 }
                                             }
@@ -289,7 +289,7 @@ $(function () {
                 formData.set('toUser', $('.sendButton').attr('data-sendTo'));
                 formData.set('content', $('textarea.messageArea').val());
                 try {
-                    let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/messageMedia', {
+                    let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/messageMedia', {
                         method: 'POST',
                         headers: {
                             'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -308,7 +308,7 @@ $(function () {
                         console.log(userId)
                         const viewMessage = async function (data) {
                             try {
-                                let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/message/' + userId, {
+                                let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/message/' + userId, {
                                     method: 'GET',
                                     headers: {
                                         'Content-Type': 'application/json',
@@ -342,11 +342,11 @@ $(function () {
                                             } else {
                                                 var extension = responseData[resp].mediaLink.split('.').pop();
                                                 if (extension == 'png' || extension == 'jpg' || extension == 'jpeg' || extension == 'gif' || extension == 'svg') {
-                                                    var message = '<div><div class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + ' mediaMessage"><img src="https://www.api.apajh.jeseb.fr/public/' + responseData[resp].mediaLink + '" alt=""><br />' +
+                                                    var message = '<div><div class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + ' mediaMessage"><img src="https://www.api.apajh-num-et-rik.fr/public/' + responseData[resp].mediaLink + '" alt=""><br />' +
                                                         '<span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + '">' + responseData[resp].content + '<br /><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "datetimeToUser" : "datetimeFromUser") + ' mt-2">Reçu le ' + fullDate + ' à ' + messHour + ' <i title="' + isRead + '" class="far fa-eye ' + (lastMessage == 0 ? 'noRead' : '') + '"></i></span></span></div></div>'
                                                 } else if (extension == 'mp4' || extension == 'avi' || extension == 'mov') {
                                                     var message = '<div><div class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + ' mediaMessage">' +
-                                                        '<video class="messageVideo" contextmenu="return false;" oncontextmenu="return false;" controls><source src="https://www.api.apajh.jeseb.fr/public' + responseData[resp].mediaLink + '" type="video/mp4"></video><br />' +
+                                                        '<video class="messageVideo" contextmenu="return false;" oncontextmenu="return false;" controls><source src="https://www.api.apajh-num-et-rik.fr/public' + responseData[resp].mediaLink + '" type="video/mp4"></video><br />' +
                                                         '<span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "messageToUser" : "messageFromUser") + '">' + responseData[resp].content + '<br /><span class="' + (responseData[resp].fromUser == localStorage.getItem('id') ? "datetimeToUser" : "datetimeFromUser") + ' mt-2">Reçu le ' + fullDate + ' à ' + messHour + ' <i title="' + isRead + '" class="far fa-eye ' + (lastMessage == 0 ? 'noRead' : '') + '"></i></span></div></div>'
                                                 }
                                             }
@@ -381,7 +381,7 @@ $(document).on('click', '.newContact', function (event) {
     event.preventDefault();
     const selectUserForMessage = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/userForMessage', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/userForMessage', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -416,7 +416,7 @@ $(document).on('click', '.newSendButton', function (event) {
     event.preventDefault();
     const sendMessage = async function (data) {
         try {
-            let response = await fetch('https://www.api.apajh.jeseb.fr/public/v1/message', {
+            let response = await fetch('https://www.api.apajh-num-et-rik.fr/public/v1/message', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
