@@ -14,7 +14,7 @@
     "@rollup/plugin-commonjs": "^21.0.1",
     "electron": "^11.1.1",
     "@popperjs/core": "^2.9.3",
-    "@progress/kendo-ui": "^2021.3.914",
+    "@progress/kendo-ui": "^2022.3.913",
     "bootstrap": "^5.1.0",
     "froala-editor": "^4.0.6",
     "jquery": "^3.6.0",
@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.9.3",
-    "@progress/kendo-ui": "^2021.3.914",
+    "@progress/kendo-ui": "^2022.3.913",
     "bootstrap": "^5.1.0",
     "electron-forge": "^5.2.4",
     "froala-editor": "^4.0.6",
